@@ -4,6 +4,14 @@ class SpotsController < ApplicationController
   # GET /spots or /spots.json
   def index
     @spots = Spot.all
+    # The `geocoded` scope filters only spots with coordinates
+    @markers = @spots.geocoded.map do |spot|
+      {
+        lat: spot.latitude,
+        lng: spot.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {spot: spot})
+      }
+    end
   end
 
   # GET /spots/1 or /spots/1.json
@@ -22,7 +30,7 @@ class SpotsController < ApplicationController
   # POST /spots or /spots.json
   def create
     @spot = Spot.new(spot_params)
-
+    
     respond_to do |format|
       if @spot.save
         format.html { redirect_to spot_url(@spot), notice: "Spot was successfully created." }
