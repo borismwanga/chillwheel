@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.footer {
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  bottom: 0;
+  background: rgb(0, 0, 0) !important;
+  width: 100vw;
+  padding-top: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.footer-content {
+  background: rgb(0, 0, 0) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-list-left {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  color:rgb(0, 0, 0);
+}
+
+.footer-text {
+  margin-right: 30px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.footer-list-right {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  color:rgb(0, 0, 0);
+}
+
+.footer-link {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-right: 30px;
+font-size: small;
+color: rgb(255, 255, 255) !important;
+cursor: pointer !important;
+}
