@@ -75,5 +75,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
 gem "devise"
 
+gem "simple_form", github: "heartcombo/simple_form"
+gem "sassc-rails"
+gem "jbuilder" 
