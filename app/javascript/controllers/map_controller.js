@@ -9,7 +9,7 @@ export default class extends Controller {
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-
+    
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
@@ -17,11 +17,14 @@ export default class extends Controller {
       zoom: 1 // starting zoom
     })
     this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    // this.#fitMapToMarkers()
     this.#geolocalisation()
+    console.log("hello")
+    
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                          mapboxgl: mapboxgl }))
+
   }
 
   #addMarkersToMap() {
@@ -35,9 +38,9 @@ export default class extends Controller {
   }
 
   #fitMapToMarkers() {
-    // const bounds = new mapboxgl.LngLatBounds()
-    // this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    // this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 2 })
+    const bounds = new mapboxgl.LngLatBounds()
+    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 2 })
   }
   #geolocalisation() {
     // this.map.addControl(
@@ -57,11 +60,17 @@ export default class extends Controller {
       },
       trackUserLocation: true
       });
-
+      geolocate.on('geolocate', function(e) {
+        let lon = e.coords.longitude;
+        let lat = e.coords.latitude
+        let position = [lon, lat];
+        console.log(position);
+    });
       this.map.addControl(geolocate);
       this.map.on('load', () => {
       geolocate.trigger();
       });
   }
+
 
 }
