@@ -4,11 +4,9 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :comment %>
-    <%= f.input :category %>
-    <%= f.input :location %>
-    <%= f.input :acitve %>
-    <%= f.association :user %>
+    <%= f.input :comment, as: :text, input_html: { class: "new-text" } %>
+    <%= f.input :category, collection: ["Works", "Damage road", "Dangerous junction", "Accident"], class: "new-text"%>
+    <%= f.input :location, placeholder: 'Location', class: "new-text"%>
   </div>
 
   <div class="form-actions">
