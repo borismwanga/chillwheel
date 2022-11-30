@@ -6,8 +6,12 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 // Your CSS partials
 @import "components/index";
 @import "components/footers";
 @import "pages/index";
+
+// Mapbox
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
