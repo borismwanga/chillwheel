@@ -1,2 +1,6 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container">
+  <%# <a href="" class="signup-button"><p class="signup-text">SIGN UP</p></a> %>
+  <%= link_to "SIGN UP", new_user_registration_path, class:"signup-button", id:"signup-text" %>
+  <p id="privacy-text">Your privacy is safe with us, read more <a href="#", id="terms-text">HERE</a>.</p>
+</div>

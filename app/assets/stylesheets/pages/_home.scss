@@ -1,1 +1,78 @@
-// Specific CSS for your home-page
+
+
+body {
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url(background_final.jpg);
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  text-align: center;
+  margin-top: 15%;
+  margin-bottom: 40%;
+}
+
+
+.signup-button {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  padding: 0.3em 2.1em;
+  background-color: rgb(255, 255, 255);
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+
+}
+
+#signup-text {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 40px;
+  color: #000000;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.signup-button:hover {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  background-color: rgb(0, 0, 0);
+  border: 3px solid #ffffff00;
+  box-shadow: 3px 3px 0px #ffffff00;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  color: #ffffff !important;
+}
+
+.signup-text:hover {
+  cursor: pointer;
+  color: #ffffff;
+}
+
+#privacy-text {
+  margin-top: 7px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#terms-text {
+  color: rgb(0, 0, 0) !important;
+}
+
+#terms-text:hover {
+  color: rgb(0, 0, 0) !important;
+  font-weight: bold;
+}
