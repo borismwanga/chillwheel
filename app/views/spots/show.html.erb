@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @spot %>
+
+<div>
+  <%= link_to "Edit this spot", edit_spot_path(@spot) %> |
+  <%= link_to "Back to spots", spots_path %>
+
+  <%= button_to "Destroy this spot", @spot, method: :delete %>
+</div>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Spots</h1>
+
+<div id="spots">
+  <% @spots.each do |spot| %>
+    <%= render spot %>
+    <p>
+      <%= link_to "Show this spot", spot %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New spot", new_spot_path %>
