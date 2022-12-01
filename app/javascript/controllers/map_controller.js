@@ -39,13 +39,10 @@ export default class extends Controller {
         return "#f3bf1f";
       case 'Works':
         return "#2986cc";
-        console.log('Mangoes and papayas are $2.79 a pound.');
       default:
         "#ffffff"
     }
-
   }
-
 
   getAddress(address) {
     console.log(address)
