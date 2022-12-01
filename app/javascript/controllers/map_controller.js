@@ -1,8 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
+  static targets = ["input", "result", "span"];
+
   static values = {
     apiKey: String,
     markers: Array
@@ -19,12 +20,13 @@ export default class extends Controller {
     this.#addMarkersToMap()
     // this.#fitMapToMarkers()
     this.#geolocalisation()
-    console.log("hello")
-    
 
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                         mapboxgl: mapboxgl }))
+    console.log("logging span target", this.spanTarget)
+  }
 
+  getAddress(address) {
+    console.log(address) 
+    // this.spanTarget.innerHTML = address
   }
 
   #addMarkersToMap() {
@@ -60,12 +62,20 @@ export default class extends Controller {
       },
       trackUserLocation: true
       });
+
       geolocate.on('geolocate', function(e) {
         let lon = e.coords.longitude;
         let lat = e.coords.latitude
         let position = [lon, lat];
         console.log(position);
-    });
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${position[0]},${position[1]}.json?access_token=pk.eyJ1IjoiYm9yaXNtd2FuZ2EiLCJhIjoiY2xhMmVrd3YwMGVnZjNwbXozMjZqenZyOCJ9.Lbbgio2LZjf4VtXKhwqMrQ`)
+          .then(response => response.json())
+          // .then(data => this.getAddress(data.features[0].place_name));
+          .then(data =>  localStorage.setItem('address', data.features[0].place_name));
+      });
+
+     
+
       this.map.addControl(geolocate);
       this.map.on('load', () => {
       geolocate.trigger();
@@ -73,4 +83,5 @@ export default class extends Controller {
   }
 
 
+  
 }
