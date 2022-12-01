@@ -1,15 +1,19 @@
+<div class="spots-page">
 
-<%= render "shared/map" %>
+  <div data-controller="search">
+  </div>
 
-<div id="spots" >
-  <% @spots.each do |spot| %>
-    <%= render spot %>
-    <p>
-      <%= link_to "Show this spot", spot %>
-    </p>
-  <% end %>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <%= link_to "New spot", new_spot_path %>
+    <span data-map-target="span">update here</span>
+  </div>
+
 </div>
 
 
+
 <%= link_to "New spot", new_spot_path %>
-<%# <%= link_to_remote “Create Post”, :url => {:controller=>‘map_controller’, :action =>‘new’},  :method => :get, :with =>“getParams();” %> %>
+
