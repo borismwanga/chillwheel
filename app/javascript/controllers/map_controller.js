@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -10,7 +11,7 @@ export default class extends Controller {
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    
+
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
@@ -18,14 +19,17 @@ export default class extends Controller {
       zoom: 1 // starting zoom
     })
     this.#addMarkersToMap()
-    // this.#fitMapToMarkers()
+    this.#fitMapToMarkers()
+
+    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+                                        mapboxgl: mapboxgl }))
     this.#geolocalisation()
 
     console.log("logging span target", this.spanTarget)
   }
 
   getAddress(address) {
-    console.log(address) 
+    console.log(address)
     // this.spanTarget.innerHTML = address
   }
 
@@ -74,7 +78,7 @@ export default class extends Controller {
           .then(data =>  localStorage.setItem('address', data.features[0].place_name));
       });
 
-     
+
 
       this.map.addControl(geolocate);
       this.map.on('load', () => {
@@ -83,5 +87,5 @@ export default class extends Controller {
   }
 
 
-  
+
 }

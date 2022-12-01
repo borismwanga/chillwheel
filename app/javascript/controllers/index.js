@@ -10,5 +10,8 @@ application.register("geolocalisation", GeolocalisationController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LocationAutocompleteController from "./location_autocomplete_controller"
+application.register("location-autocomplete", LocationAutocompleteController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
