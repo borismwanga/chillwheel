@@ -23,5 +23,10 @@
     <strong>User:</strong>
     <%= spot.user.username %>
   </p>
-
+  <strong>Photo:</strong>
+  <p>
+  <% if spot.photo.attached? %>
+    <%= cl_image_tag spot.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  </p>
 </div>
