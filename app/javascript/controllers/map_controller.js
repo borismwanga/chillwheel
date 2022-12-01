@@ -33,12 +33,8 @@ export default class extends Controller {
     switch (marker.category) {
       case 'Accident':
         return "#cc0000";
-      case 'Dangerous junction':
-        return "#f78b1c";
-      case 'Damage road':
-        return "#f3bf1f";
-      case 'Works':
-        return "#2986cc";
+      case 'Stolen bike':
+        return "#f7932c";
       default:
         "#ffffff"
     }

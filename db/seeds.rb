@@ -26,9 +26,10 @@ User.destroy_all
   user.photo.attach(io: file, filename: "spaceship.jpg", content_type: "image/jpg")
   user.save
 }
+puts "done 5 users"
 10.times {
   user = User.all.to_a.sample
-  category = ["Works", "Damage road", "Dangerous junction", "Accident"].sample
+  category = ["Stolen bike", "Accident"].sample
   street = ["Boulevard Adolphe Max",
             "Rue d'Aerschot",
             "Avenue Albert",
@@ -108,3 +109,6 @@ User.destroy_all
   location = num.to_s + " " +street + " Brussels"
   Spot.create(comment:Faker::Lorem.sentence, category: category, user:user,location: location)
 }
+puts "done 10 addresses"
+
+puts "seed done"
