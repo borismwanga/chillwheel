@@ -20,7 +20,11 @@ Spot.destroy_all
 User.destroy_all
 
 5.times {
-  User.create(username: Faker::FunnyName.name, email:Faker::Internet.email, phone_number:Faker::PhoneNumber.cell_phone, password:"123456",)
+  photo = Faker::LoremFlickr.image(size: "380x460", search_terms: ['person'])
+  file = URI.open(photo)
+  user = User.create(username: Faker::FunnyName.name, email:Faker::Internet.email, phone_number:Faker::PhoneNumber.cell_phone, password:"123456",)
+  user.photo.attach(io: file, filename: "spaceship.jpg", content_type: "image/jpg")
+  user.save
 }
 10.times {
   user = User.all.to_a.sample
