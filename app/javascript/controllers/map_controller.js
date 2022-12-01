@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -10,7 +11,7 @@ export default class extends Controller {
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    
+
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
@@ -18,26 +19,51 @@ export default class extends Controller {
       zoom: 1 // starting zoom
     })
     this.#addMarkersToMap()
-    // this.#fitMapToMarkers()
+    this.#fitMapToMarkers()
+
+    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+                                        mapboxgl: mapboxgl }))
     this.#geolocalisation()
 
     console.log("logging span target", this.spanTarget)
   }
 
+  #markerColor(marker) {
+    console.log(marker.category)
+    switch (marker.category) {
+      case 'Accident':
+        return "#cc0000";
+      case 'Dangerous junction':
+        return "#f78b1c";
+      case 'Damage road':
+        return "#f3bf1f";
+      case 'Works':
+        return "#2986cc";
+        console.log('Mangoes and papayas are $2.79 a pound.');
+      default:
+        "#ffffff"
+    }
+
+  }
+
+
   getAddress(address) {
-    console.log(address) 
+    console.log(address)
     // this.spanTarget.innerHTML = address
   }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window) // Add this
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({
+        color: this.#markerColor(marker),
+      })
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup) // Add this
         .addTo(this.map)
     });
   }
+
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
@@ -74,7 +100,7 @@ export default class extends Controller {
           .then(data =>  localStorage.setItem('address', data.features[0].place_name));
       });
 
-     
+
 
       this.map.addControl(geolocate);
       this.map.on('load', () => {
@@ -83,5 +109,5 @@ export default class extends Controller {
   }
 
 
-  
+
 }

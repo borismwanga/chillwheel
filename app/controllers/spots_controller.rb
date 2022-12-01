@@ -9,6 +9,7 @@ class SpotsController < ApplicationController
       {
         lat: spot.latitude,
         lng: spot.longitude,
+        category: spot.category,
         info_window: render_to_string(partial: "info_window", locals: {spot: spot})
       }
     end
