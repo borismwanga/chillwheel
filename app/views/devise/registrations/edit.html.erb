@@ -24,6 +24,9 @@
                     hint: "We need your current password to confirm your changes",
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
+        <%= f.input :photo,
+                    hint: "Add your new profile photo, if you want to chage it",
+                    as: :file %>
       </div>
 
       <div class="form-actions">
@@ -35,7 +38,6 @@
       <%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "cancel-link" %>
       <%# link_to "Back", :back, class: "cancel-link" %>
     </div>
-
 
   </div>
 </div>
