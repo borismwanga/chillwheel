@@ -1,7 +1,7 @@
 <div class="body-container">
     <div class="form-block">
       <div class="form-container">
-      
+
         <h2>SIGN UP</h2>
 
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false} } ) do |f| %>
@@ -30,10 +30,6 @@
             <%= f.button :submit, "SIGN UP", class: "form-text" %>
           </div>
         <% end %>
-
-        <div class="form-link">
-          <%= link_to "LOGIN", new_user_session_path, class:"form-link-text"%>
-        </div>
       </div>
     </div>
 </div>
