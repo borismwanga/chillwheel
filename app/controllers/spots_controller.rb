@@ -64,6 +64,10 @@ class SpotsController < ApplicationController
       format.html { redirect_to spots_url, notice: "Spot was successfully destroyed." }
       format.json { head :no_content }
     end
+
+    def article_params
+      params.require(:article).permit(:title, :body, :photo)
+    end
   end
 
   private
@@ -74,6 +78,6 @@ class SpotsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def spot_params
-      params.require(:spot).permit(:comment, :category, :location, :acitve, :user_id)
+      params.require(:spot).permit(:comment, :category, :location, :acitve, :user_id, :photo)
     end
 end
