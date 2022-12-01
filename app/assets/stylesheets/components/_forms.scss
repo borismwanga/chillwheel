@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+.form-block {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-family: "Inter", sans-serif;
+  margin-top: 60px;
+  margin-bottom: 200px;
+}
+
+.form-container {
+  padding: 40px;
+  width: 450px;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: #ffffff;
+
+
+  h2 {
+    font-weight: 800;
+    font-style: oblique;
+    margin-bottom: 20px;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+.form-inputs {
+  input {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  border-radius: 10px;
+  font-weight: 600;
+  font-style: oblique;
+  margin-bottom: 15px;
+  }
+
+  input:valid {
+    background-color: rgb(255, 255, 255);
+    border: 3px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
+    border-radius: 10px;
+    font-weight: 600;
+    font-style: oblique;
+    margin-bottom: 15px;
+  }
+}
+
+.form-actions {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+  cursor: pointer;
+
+  .form-text {
+    font-weight: 800;
+    font-size: 18px;
+    font-style: oblique;
+    font-family: "Inter", sans-serif;
+  }
+
+}
+
+.form-actions:hover {
+  background-color: rgb(101, 155, 255);
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-link {
+  font-weight: 800;
+  text-align: center;
+  margin-top: 25px;
+
+  .form-link-text {
+    color:rgb(0, 0, 0);
+    text-decoration: none;
+  }
+
+  .form-link-text:hover {
+    color: rgb(101, 155, 255);
+    text-decoration: none;
+  }
+}
+
+
+#cancel-form {
+  font-weight: 800;
+  text-align: center;
+  margin-top: 25px;
+  color:rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+
+.cancel-link{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+
+.cancel-link:hover {
+  color: rgb(101, 155, 255);
+  text-decoration: none;
+}

@@ -9,13 +9,10 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "CRASH MAP", spots_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill,class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -23,6 +20,7 @@
               <%= link_to "Profile", "profile", class: "dropdown-item" %>
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+
             </div>
           </li>
         <% else %>
