@@ -14,25 +14,30 @@
   font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-style: italic;
-  font-size: 12px;
+  font-size: 16px;
   color: #000000 !important;
   margin-right: 2em;
+  border-color: 1px;
   background-color: rgb(255, 255, 255);
-  border: 3px solid #000000;
-  box-shadow: 3px 3px 0px #000000;
-  border-radius: 10px;
+  box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+  3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
+
 }
 
 .nav-link:hover {
-  animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  perspective: 1000px;
+  color: #000000 !important;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+  3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
+
+  cursor: pointer;
 }
 
 .avatar {
   background-color: rgb(255, 255, 255);
-  border: 3px solid #000000;
-  box-shadow: 3px 3px 0px #000000;
+  border: solid black 1px;
+  box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+  3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
 }
 
 .avatar:hover {
@@ -61,8 +66,9 @@
 
 .navbar-toggler {
   color: #000000 !important;
-  border: 3px solid #000000;
-  box-shadow: 3px 3px 0px #000000;
+
+  box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+  3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
   border-radius: 10px;
   cursor: pointer;
   padding: 0.5em 0.5em;
@@ -72,10 +78,9 @@
 
   color: #000000 !important;
   background-color: rgb(255, 255, 255);
-  border: 3px solid #000000;
-  box-shadow: 3px 3px 0px #000000;
+  box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+  3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
   margin-top: 20px;
-  border-radius: 10px;
 }
 
 .dropdown-item{

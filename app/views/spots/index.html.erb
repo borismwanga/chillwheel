@@ -1,13 +1,13 @@
 <div class="spots-page">
-
-  <div style="width: 100%; height: 600px;">
-    <%= render "shared/map" %>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     <%= link_to "New spot", new_spot_path %>
     <span data-map-target="span">update here</span>
   </div>
-
 </div>
 
-
-
-<%= link_to "New spot", new_spot_path %>
+<div style="position: absolute; z-index: 1; top: 105px; left: 15px;">
+  <%= link_to "ADD A CRASH", new_spot_path, class: "new-spot-button"%>
+</div>
