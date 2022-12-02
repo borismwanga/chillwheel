@@ -1,12 +1,19 @@
-<h1>New spot</h1>
-<div data-controller=geolocalisation>
-<span data-geolocalisation-target="span">d</span>
-<%= render "form", spot: @spot %>
 
-<br>
-</div>
+  <div class="form-block">
+    <div class="form-container">
+
+      <h1>REPORT</h1>
+      <div data-controller=geolocalisation>
+        <span data-geolocalisation-target="span"></span>
+        <%= render "form", spot: @spot %>
+
+        <br>
+      </div>
 
 
-<div>
-  <%= link_to "Back to spots", spots_path %>
-</div>
+      <div>
+        <%= link_to "Back to spots", spots_path %>
+      </div>
+    </div>
+    </div>
+  </div>
