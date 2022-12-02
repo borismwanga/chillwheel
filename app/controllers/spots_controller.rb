@@ -10,7 +10,9 @@ class SpotsController < ApplicationController
         lat: spot.latitude,
         lng: spot.longitude,
         category: spot.category,
-        info_window: render_to_string(partial: "info_window", locals: {spot: spot})
+        info_window: render_to_string(partial: "info_window", locals: {spot: spot}),
+        # image_url: helpers.asset_url("circle_accident.png")
+        image_url: category_marker(spot)
       }
     end
   end
@@ -70,8 +72,10 @@ class SpotsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_spot
       @spot = Spot.find(params[:id])
     end
@@ -80,4 +84,13 @@ class SpotsController < ApplicationController
     def spot_params
       params.require(:spot).permit(:comment, :category, :location, :acitve, :user_id, :photo)
     end
+
+    def category_marker(spot)
+      if spot.category == "Accident"
+        return helpers.asset_url("circle_accident.png")
+      else
+        return helpers.asset_url("circle_stolen_bike.png")
+      end
+    end
+
 end

@@ -28,17 +28,17 @@ export default class extends Controller {
     console.log("logging span target", this.spanTarget)
   }
 
-  #markerColor(marker) {
-    console.log(marker.category)
-    switch (marker.category) {
-      case 'Accident':
-        return "#cc0000";
-      case 'Stolen bike':
-        return "#f7932c";
-      default:
-        "#ffffff"
-    }
-  }
+  // #markerColor(marker) {
+  //   console.log(marker.category)
+  //   switch (marker.category) {
+  //     case 'Accident':
+  //       return "#cc0000";
+  //     case 'Stolen bike':
+  //       return "#f7932c";
+  //     default:
+  //       "#ffffff"
+  //   }
+  // }
 
   getAddress(address) {
     console.log(address)
@@ -47,10 +47,18 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window) // Add this
-      new mapboxgl.Marker({
-        color: this.#markerColor(marker),
-      })
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+
+      // Create a HTML element for your custom marker
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      customMarker.style.backgroundSize = "contain"
+      customMarker.style.width = "25px"
+      customMarker.style.height = "25px"
+      customMarker.style.opacity = "50%"
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup) // Add this
         .addTo(this.map)
