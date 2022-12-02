@@ -5,7 +5,7 @@
 
     <div class="form-inputs" >
       <div class="input-report"><%= f.input :comment, as: :text, input_html: { class: "new-text" } %></div>
-      <div class="input-report">><%= f.input :category, collection: ["Accident", "Theft"], class: "new-text"%></div>
+      <div class="input-report">><%= f.input :category, collection: ["Accident", "Stolen Bike"], class: "new-text"%></div>
       <%= f.input :location, placeholder: 'Location', class: "new-text" , input_html: { "data-target" => "geolocalisation.input" }%>
       <%= f.input :photo, as: :file %>
     </div>
