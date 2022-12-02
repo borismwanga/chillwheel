@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
 .spots-page {
   background-color: white;
 }
@@ -24,4 +27,20 @@
 
 #report {
   margin-bottom: 10vh;
+}
+
+.spot {
+  text-align: center;
+}
+
+.spot-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-style: bold;
+  font-size: 18px;
+}
+
+.spot-container {
+  border-top: solid 1px #000000;
+  border-bottom: solid 1px #000000;
 }
