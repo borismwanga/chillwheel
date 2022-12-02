@@ -93,8 +93,9 @@ export default class extends Controller {
       geolocate.on('geolocate', function(e) {
         let lon = e.coords.longitude;
         let lat = e.coords.latitude
+        let key = "pk.eyJ1IjoidG9tbXJsIiwiYSI6ImNsYTJqanh2ODBobzczcHBoY2VseTBiOHEifQ.Qp_zstoBsFRoqB3rBWPMHA"
         let position = [lon, lat];
-        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${position[0]},${position[1]}.json?access_token=pk.eyJ1IjoiYm9yaXNtd2FuZ2EiLCJhIjoiY2xhMmVrd3YwMGVnZjNwbXozMjZqenZyOCJ9.Lbbgio2LZjf4VtXKhwqMrQ`)
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${position[0]},${position[1]}.json?access_token=${key}`)
           .then(response => response.json())
           // .then(data => this.getAddress(data.features[0].place_name));
           .then(data =>  localStorage.setItem('address', data.features[0].place_name));
