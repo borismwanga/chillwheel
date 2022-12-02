@@ -24,7 +24,6 @@ User.destroy_all
   file = URI.open(photo)
   user = User.create(username: Faker::FunnyName.name, email:Faker::Internet.email, phone_number:Faker::PhoneNumber.cell_phone, password:"123456",)
   user.photo.attach(io: file, filename: "spaceship.jpg", content_type: "image/jpg")
-  user.save
 }
 puts "done 5 users"
 10.times {
