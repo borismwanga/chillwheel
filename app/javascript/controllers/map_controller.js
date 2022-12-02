@@ -22,8 +22,8 @@ export default class extends Controller {
     this.#fitMapToMarkers()
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                        mapboxgl: mapboxgl }))
-    this.#geolocalisation()
+                                        mapboxgl: mapboxgl }), "top-left")
+    this.#geolocalisation("top-left")
 
     console.log("logging span target", this.spanTarget)
   }
