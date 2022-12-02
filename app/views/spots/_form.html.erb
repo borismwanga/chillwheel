@@ -1,15 +1,15 @@
 
-<%= simple_form_for(@spot)  do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= simple_form_for(@spot)  do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs" >
-    <%= f.input :comment, as: :text, input_html: { class: "new-text" } %>
-    <%= f.input :category, collection: ["Works", "Damage road", "Dangerous junction", "Accident"], class: "new-text"%>
-    <%= f.input :location, placeholder: 'Location', class: "new-text" , input_html: { "data-target" => "geolocalisation.input" }%>
-    <%= f.input :photo, as: :file %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-inputs" >
+      <div class="input-report"><%= f.input :comment, as: :text, input_html: { class: "new-text" } %></div>
+      <div class="input-report">><%= f.input :category, collection: ["Accident", "Theft"], class: "new-text"%></div>
+      <%= f.input :location, placeholder: 'Location', class: "new-text" , input_html: { "data-target" => "geolocalisation.input" }%>
+      <%= f.input :photo, as: :file %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
