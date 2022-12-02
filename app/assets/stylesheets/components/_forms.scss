@@ -111,3 +111,12 @@
   color: rgb(101, 155, 255);
   text-decoration: none;
 }
+
+.input-report {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+  3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
+  font-weight: 600;
+  font-style: oblique;
+  margin-bottom: 15px;
+}
