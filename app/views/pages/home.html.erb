@@ -1,10 +1,20 @@
 <div class="body-container">
   <div class="container">
-    <%= link_to "SIGN UP", new_user_registration_path, class:"signup-button", id:"signup-text" %>
-    <p id="privacy-text">Your privacy is safe with us, read more <a href="#", id="terms-text">HERE</a>.</p>
-    <p id="cheater">.</p>
+    <div class="item-1">
+      <p class="banner-text">Together let's make our rides safer!</p>
+    </div>
+    <div class="item-2">
+      <p class="banner-text">Report your accident or stolen bike to alert the <strong>Chill'Wheel</strong> community</p>
+    </div>
+    <div class="item-3">
+      <p class="banner-text">Check our map to avoid dangerous spots</p>
+    </div>
+    <div class="signup">
+      <%= link_to "SIGN UP", new_user_registration_path, class:"signup-button", id:"signup-text" %>
+      <p id="privacy-text">Your privacy is safe with us, read more <a href="#", id="terms-text">HERE</a>.</p>
+    </div>
   </div>
-    <div class="footer">
+  <div class="footer">
     <div class="footer-content">
       <ul class="footer-list-left">
         <%date = Date.today%>
