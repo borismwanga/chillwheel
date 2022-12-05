@@ -1,0 +1,74 @@
+.stolen-bike-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.stolen-bike-cards {
+  width: 430px;
+  background-color: rgba(255, 255, 255, 0.499);
+  margin: 20px;
+  padding: 15px;
+  // border: solid black 1px;
+  // box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+  // 3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
+
+}
+
+.stolenbikes-title {
+  margin-left: 20px;
+  font-size: 28px;
+  font-style: oblique;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  margin-top: 20px;
+}
+
+.stolen-link {
+  text-decoration: none !important;
+  color: black !important;
+  font-weight: 500;
+  font-size: 0.75em;
+  margin-right: 10px;
+  margin-top: 30px;
+}
+
+.stolen-link:hover {
+  color: rgb(101, 155, 255) !important;
+}
+
+.stolen-bike-text {
+  margin-bottom: 20px;
+}
+
+.photo-fit-card {
+  width: 400px;
+  height: auto;
+}
+
+.background {
+  background: linear-gradient(#ffdcc4, #dbaeff);
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.backtomap {
+  margin-bottom: 20px;
+  padding-bottom: 40px;
+  margin-left: 20px;
+}
+
+.backtomap-text {
+  text-decoration: none;
+  color:  black;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.text-margin {
+  margin-bottom: 15px;
+  margin-top: -15px;
+  font-weight: bolder;
+}
