@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   resources :events
   resources :spots do
+    resources :comments, only: [:new, :create, :show]
+  end
+
+  resources :comments, only: :destroy
+
     collection do
       get :stolen_bike
     end
   end
+
   devise_for :users
   authenticated :user do
     root to: "spots#index", as: :authenticated_root
