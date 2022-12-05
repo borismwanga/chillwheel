@@ -1,7 +1,7 @@
 <h1>All stolen bike</h1>
 
 <% @spots.each do |spot| %>
- <%#= link_to spot_path(spot) do %>
+  <%#= link_to spot_path(spot) do %>
   <p>Photo:</p>
   <% if spot.photo.attached? %>
     <%= cl_image_tag spot.photo.key, height: 300, width: 400, crop: :fill %>
@@ -10,10 +10,25 @@
   <p>Location:</p>
   <%=spot.location%>
   <p>Comment:</p>
-  <%=spot.comment%>
+  <ul>
+    <%spot.comments.last(3).each do |comment| %>
+    <%avatar = comment.user %>
+    <li> <%=comment.content%> <br> <%= comment.user.username %>
+      <div id="avatar-position">
+      <% if avatar.photo.attached? %>
+        <%= cl_image_tag avatar.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else%>
+          <%= image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end%>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+
   <div>
   <%= link_to "Edit this spot", edit_spot_path(spot) %>
   <%= link_to "DESTROY REPORT", spot_path(spot),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
 <% end %>
 
  <%= link_to "Back to spots", spots_path %>
