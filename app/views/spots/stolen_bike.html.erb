@@ -1,3 +1,5 @@
+<h1>All stolen bike</h1>
+
 <% @spots.each do |spot| %>
   <%#= link_to spot_path(spot) do %>
   <p>Photo:</p>
@@ -25,13 +27,8 @@
 
   <div>
   <%= link_to "Edit this spot", edit_spot_path(spot) %>
-  <%= link_to "Destroy this spot", spot, method: :delete %>
-  <div>
-    <%# <%= render "comments/new" %>
-  </div>
-  <div>
-    <%# <%= render "comments/comments" %>
-  </div>
+  <%= link_to "DESTROY REPORT", spot_path(spot),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
 <% end %>
 
  <%= link_to "Back to spots", spots_path %>
