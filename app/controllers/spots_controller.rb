@@ -17,6 +17,12 @@ class SpotsController < ApplicationController
     end
   end
 
+  def stolen_bike
+    @spots = Spot.all.where(category: "Stolen bike")
+  end
+
+
+
   # GET /spots/1 or /spots/1.json
   def show
   end
