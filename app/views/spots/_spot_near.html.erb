@@ -1,0 +1,19 @@
+<div class="spot-near">
+   <div class="spot-near-container">
+    <%@spots.each do |spot| %>
+        <%= link_to spot_path(spot) do %>
+            <div class="spot-near-item">
+                <% if  spot.category == "Accident" %>
+                    <%= image_tag("circle_accident.png", size: "16") %>
+                <%else%>
+                    <%= image_tag("circle_stolen_bike.png", size: "16") %>   
+                <%end %>
+                <%= spot.location %>
+            </div>
+        <%end%>
+    <%end%>
+    </div>
+</div>
+
+
+

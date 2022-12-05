@@ -1,0 +1,42 @@
+.spot-near{
+    position: absolute;
+    top:185px;
+    z-index: 9;  
+    right: 0; 
+    width:200px; 
+    height: 550px;
+    background: white; 
+    transform: translateX(250px);
+    transition: all 0.5s ease-in-out;
+    padding: 0.5em 1em;
+    box-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 3px 3px black, -1px -1px black, 1px -1px black, -1px 1px black;
+    font-weight: 600;
+    font-size: 1rem;
+    font-style: oblique;
+    overflow: scroll;
+    text-overflow: scroll;
+    font-size: 14px;
+    a {
+        text-decoration: none !important;
+        color: #000000 !important;
+
+    }
+    a:hover{
+        color: rgb(101, 155, 255) !important;
+    }
+    .open-close{
+        transition: all 0.5s ease;
+    }
+    .spot-near-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px 16px;
+
+    }
+    
+}
+
+.active {
+    transform: translateX(0);
+}
