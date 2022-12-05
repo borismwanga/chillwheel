@@ -1,19 +1,17 @@
+<div class="body-container">
+    <div class="form-block">
+      <div class="form-container">
 
-  <div class="form-block">
-    <div class="form-container">
-
-      <h1>REPORT</h1>
-      <div data-controller=geolocalisation>
-        <span data-geolocalisation-target="span"></span>
-        <%= render "form", spot: @spot %>
-
-        <br>
-      </div>
+        <h2>REPORT</h2>
+        <div data-controller=geolocalisation>
+          <span data-geolocalisation-target="span"></span>
+          <%= render "form", spot: @spot %>
+        </div>
 
 
-      <div>
-        <%= link_to "Back to spots", spots_path %>
+        <div class="form-link">
+          <%= link_to "BACK TO THE MAP", spots_path, class:"form-link-text" %>
+        </div>
       </div>
     </div>
-    </div>
-  </div>
+</div>

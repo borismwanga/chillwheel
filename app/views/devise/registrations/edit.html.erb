@@ -3,12 +3,13 @@
       <div class="form-container">
         <h2>Edit <%= current_user.username %></h2>
 
-        <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else%>
-            <%= image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end%>
-
+        <div id="avatar-position">
+          <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else%>
+              <%= image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end%>
+        </div>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
 

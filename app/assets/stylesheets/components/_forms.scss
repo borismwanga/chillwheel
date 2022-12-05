@@ -62,15 +62,22 @@
     font-size: 18px;
     font-style: oblique;
     font-family: "Inter", sans-serif;
-    padding: 0.8em 5em;
+    padding: 1em 6em;
   }
 
+  .form-text:active {
+    font-weight: 800;
+    font-size: 18px;
+    font-style: oblique;
+    font-family: "Inter", sans-serif;
+    padding: 1em 6em;
+    border: solid 1px rgba(255, 255, 255, 0);
+  }
 }
 
 .form-actions:hover {
   background-color: rgb(101, 155, 255);
   text-align: center;
-  margin-bottom: 10px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -119,4 +126,23 @@
   font-weight: 600;
   font-style: oblique;
   margin-bottom: 15px;
+}
+
+.new-text {
+  box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+  3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0) !important;
+  font-weight: 600;
+  font-style: oblique;
+  margin-bottom: 15px;
+  background-color: white !important;
+  border: 0px solid white;
+}
+
+.crash-picture {
+  width: 370px;
+}
+
+#avatar-position {
+  text-align: center;
+  margin-bottom: 20px;
 }

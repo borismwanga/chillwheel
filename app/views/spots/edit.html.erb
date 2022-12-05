@@ -1,10 +1,15 @@
-<h1>Edit a spot</h1>
+<div class="body-container">
+    <div class="form-block">
+      <div class="form-container">
+          <h2>Edit a spot</h2>
 
-<%= render "form", spot: @spot %>
+          <%= render "form", spot: @spot %>
 
-<br>
 
-<div>
-  <%= link_to "Show this spot", @spot %> |
-  <%= link_to "Back to spots", spots_path %>
+          <div class="form-link">
+            <div><%= link_to "Show this spot", @spot, class:"form-link-text" %></div>
+            <div><%= link_to "Back to spots", spots_path, class:"form-link-text" %></div>
+          </div>
+      </div>
+    </div>
 </div>

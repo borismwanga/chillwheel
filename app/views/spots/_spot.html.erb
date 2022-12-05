@@ -1,22 +1,29 @@
-<div id="<%= dom_id spot %>">
-  <p>
-    <strong>Comment:</strong>
-    <%= spot.comment %>
-  </p>
 
-  <p>
-    <strong>Category:</strong>
-    <%= spot.category %>
-  </p>
+      <h2>REPORT</h2>
 
-  <p>
-    <strong>Location:</strong>
-    <%= spot.location %>
-  </p>
-  <strong>Photo:</strong>
-  <p>
-  <% if spot.photo.attached? %>
-    <%= cl_image_tag spot.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-  </p>
+<div class="spot">
+      <div>
+      <% if spot.photo.attached? %>
+        <%= cl_image_tag spot.photo.key, height: 300, crop: :fill, class: "crash-picture" %>
+      <% end %>
+      </div>
+
+      <div id="<%= dom_id spot %>", class= "spot-container">
+
+        <p>
+          <div class="spot-title">Comment:</div>
+          <div><%= spot.comment %></div>
+        </p>
+
+        <p>
+          <div class="spot-title">Category:</div>
+          <div><%= spot.category %></div>
+        </p>
+
+        <p>
+          <div class="spot-title">Location:</div>
+          <div><%= spot.location %></div>
+        </p>
+
+      </div>
 </div>

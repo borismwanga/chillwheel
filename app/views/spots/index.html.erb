@@ -1,16 +1,28 @@
-<%# <% if params[:stolen_bike] %>
- <%# index of cards with stolen bike events %>
-<%# <%= @spots = Spots.where(category: "stolen bike") %>
-<% else %>
-<div class="spots-page">
-  <div style="width: 100%; height: 100vh;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="spots-page">
+    <div style="width: 100%; height: 100vh;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+       <%= render "legend" %>
+    </div>
   </div>
-</div>
 
-<div style="position: absolute; z-index: 1; top: 185px; left: 55px;">
-  <%= link_to "REPORT", new_spot_path, class: "new-spot-button"%>
+  <div style="position: absolute; z-index: 1; top: 185px; left: 55px;">
+    <%= link_to "REPORT", new_spot_path, class: "new-spot-button"%>
+  </div>
+
+ 
+
+  <div class="footer">
+    <div class="footer-content">
+      <ul class="footer-list-left">
+        <%date = Date.today%>
+        <li class="footer-text">©<%= date.year  %>, ChillWheel</li>
+        <li><%= link_to "About", "#", class: "footer-link" %></li>
+        <li><%= link_to "Privacy", "https://ec.europa.eu/info/law/law-topic/data-protection_en", target: "_blank", class: "footer-link" %></li>
+        <li><%= link_to "Terms",  "https://www.commissioner.brussels/en/i-am-an-expat/housing/82-housing/104-signing-a-lease", target: "_blank", class: "footer-link" %></li>
+      </ul>
+    </div>
+  </div>
 </div>
 <%end %>

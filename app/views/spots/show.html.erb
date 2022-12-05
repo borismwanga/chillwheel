@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="body-container">
+    <div class="form-block">
+      <div class="form-container">
 
-<%= render @spot %>
+        <div class="spots">
+          <%= render @spot %>
+        </div>
 
-<div>
-  <%= link_to "Edit this spot", edit_spot_path(@spot) %> |
-  <%= link_to "Back to spots", spots_path %>
+        <div class="form-link">
+          <div><%= link_to "EDIT REPORT", edit_spot_path(@spot), class:"form-link-text" %></div>
+          <div><%= link_to "DESTROY REPORT", @spot, method: :delete, class:"form-link-text" %></div>
+          <br>
+          <div><%= link_to "BACK TO MAP", spots_path, class:"form-link-text" %></div>
 
-  <%= button_to "Destroy this spot", @spot, method: :delete %>
+        </div>
+
+      </div>
+    </div>
 </div>

@@ -74,14 +74,19 @@
   padding: 0.5em 0.5em;
 }
 
-.dropdown-menu{
+.dropdown-menu {
 
   color: #000000 !important;
   background-color: rgb(255, 255, 255);
   box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
   3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
+
+}
+
+.dropdown-menu-end {
   margin-top: 20px;
 }
+
 
 .dropdown-item{
   font-weight: 900;
