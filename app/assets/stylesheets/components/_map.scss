@@ -1,8 +1,45 @@
 .mapboxgl-popup {
-    max-width: 200px;
+    max-width: 220px;
+
   }
-  
+
   .mapboxgl-popup-content {
     text-align: center;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+
+
+    h2 {
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      font-style: oblique;
+      text-align: center;
+      font-size: 4vmin;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-top: 5px;
+      margin-bottom: 15px;
+      font-weight: 500;
+      font-size: 2vmin;
+      padding: 1.5vmin;
+      border-top: solid 1px #000000;
+      border-bottom: solid 1px #000000;
+    }
+
+    a {
+      text-decoration: none !important;
+      color: rgb(101, 155, 255);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    a:hover {
+      text-decoration: none !important;
+      color: black;
+      font-weight: 800;
+      cursor: pointer;
+    }
   }
