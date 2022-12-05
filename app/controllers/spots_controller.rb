@@ -19,6 +19,8 @@ class SpotsController < ApplicationController
 
   # GET /spots/1 or /spots/1.json
   def show
+    @comment = Comment.new
+    @comments = Comment.all.where(spot_id: @spot.id)
   end
 
   # GET /spots/new

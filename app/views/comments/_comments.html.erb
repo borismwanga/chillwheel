@@ -1,0 +1,17 @@
+<div>
+  <ul>
+    <p><strong>Comments posted</strong></p>
+    <% @comments.each do |comment| %>
+    <%avatar = comment.user %>
+    <li> <%= comment.content%> <br> <%= comment.user.username %>
+    <div id="avatar-position">
+    <% if avatar.photo.attached? %>
+      <%= cl_image_tag avatar.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% else%>
+        <%= image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% end%>
+    </div>
+    </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,13 @@
+<div id="avatar-position">
+  <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% else%>
+      <%= image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <% end%>
+</div>
+<div>
+  <%= simple_form_for [@spot, @user, @comment] do |f| %>
+    <%= f.input_field :content, placeholder: 'write your comment here'%>
+    <%= f.submit value="send" %>
+  <% end %>
+</div>
