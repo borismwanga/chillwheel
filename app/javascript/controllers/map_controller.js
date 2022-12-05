@@ -3,7 +3,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
-  static targets = ["input", "result", "span"];
+  static targets = ["input", "result"];
 
   static values = {
     apiKey: String,
@@ -25,7 +25,6 @@ export default class extends Controller {
                                         mapboxgl: mapboxgl }), "top-left")
     this.#geolocalisation("top-left")
 
-    console.log("logging span target", this.spanTarget)
   }
 
   // #markerColor(marker) {
@@ -42,7 +41,6 @@ export default class extends Controller {
 
   getAddress(address) {
     console.log(address)
-    // this.spanTarget.innerHTML = address
   }
 
   #addMarkersToMap() {
@@ -95,6 +93,8 @@ export default class extends Controller {
         let lat = e.coords.latitude
         let key = "pk.eyJ1IjoidG9tbXJsIiwiYSI6ImNsYTJqanh2ODBobzczcHBoY2VseTBiOHEifQ.Qp_zstoBsFRoqB3rBWPMHA"
         let position = [lon, lat];
+        localStorage.setItem('position', position)
+        console.log(localStorage.getItem('position'));
         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${position[0]},${position[1]}.json?access_token=${key}`)
           .then(response => response.json())
           // .then(data => this.getAddress(data.features[0].place_name));
