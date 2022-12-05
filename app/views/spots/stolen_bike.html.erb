@@ -1,34 +1,58 @@
-<h1>All stolen bike</h1>
+<div class="background">
 
-<% @spots.each do |spot| %>
-  <%#= link_to spot_path(spot) do %>
-  <p>Photo:</p>
-  <% if spot.photo.attached? %>
-    <%= cl_image_tag spot.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+  <div class="stolenbikes-title">
+    <p>THE STOLEN BIKES</p>
+  </div>
 
-  <p>Location:</p>
-  <%=spot.location%>
-  <p>Comment:</p>
-  <ul>
-    <%spot.comments.last(3).each do |comment| %>
-    <%avatar = comment.user %>
-    <li> <%=comment.content%> <br> <%= comment.user.username %>
-      <div id="avatar-position">
-      <% if avatar.photo.attached? %>
-        <%= cl_image_tag avatar.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <% else%>
-          <%= image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <% end%>
+  <div class="stolen-bike-container">
+
+      <% @spots.each do |spot| %>
+        <div class="stolen-bike-cards">
+
+        <%#= link_to spot_path(spot) do %>
+          <% if spot.photo.attached? %>
+            <%= cl_image_tag spot.photo.key, crop: :fill, class: "photo-fit-card" %>
+          <% end %>
+
+          <p class="stolen-bike-text">Location:</p>
+          <div class= "text-margin"><%=spot.location %></div>
+          <p class="stolen-bike-text">Comment:</p>
+          <ul>
+            <% spot.comments.last(3).each do |comment| %>
+            <% avatar = comment.user %>
+            <li> <%=comment.content%> <br> <%= comment.user.username %>
+              <div id="avatar-position">
+              <% if avatar.photo.attached? %>
+                <%= cl_image_tag avatar.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else%>
+                  <%= image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end%>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+
+            <%= link_to "Edit post ", edit_spot_path(spot), class: "stolen-link" %>
+            <%= link_to "Delete post", spot_path(spot),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "stolen-link" %>
+
+        </div>
+      <% end %>
+  </div>
+
+  <div class="backtomap">
+    <%= link_to "BACK TO MAP", spots_path, class:"backtomap-text" %>
+  </div>
+
+</div>
+
+  <div class="footer">
+      <div class="footer-content">
+        <ul class="footer-list-left">
+          <%date = Date.today%>
+          <li class="footer-text">©<%= date.year  %>, ChillWheel</li>
+          <li><%= link_to "About", "#", class: "footer-link" %></li>
+          <li><%= link_to "Privacy", "https://ec.europa.eu/info/law/law-topic/data-protection_en", target: "_blank", class: "footer-link" %></li>
+          <li><%= link_to "Terms",  "https://www.commissioner.brussels/en/i-am-an-expat/housing/82-housing/104-signing-a-lease", target: "_blank", class: "footer-link" %></li>
+        </ul>
       </div>
-    </li>
-    <% end %>
-  </ul>
-
-  <div>
-  <%= link_to "Edit this spot", edit_spot_path(spot) %>
-  <%= link_to "DESTROY REPORT", spot_path(spot),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
-<% end %>
-
- <%= link_to "Back to spots", spots_path %>
+    </div>

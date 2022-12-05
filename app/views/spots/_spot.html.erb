@@ -4,7 +4,7 @@
 <div class="spot">
       <div>
       <% if spot.photo.attached? %>
-        <%= cl_image_tag spot.photo.key, height: 300, crop: :fill, class: "accident-picture" %>
+        <%= cl_image_tag spot.photo.key, crop: :fill, class: "photo-fit-card" %>
       <% end %>
       </div>
 
