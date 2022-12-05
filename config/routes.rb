@@ -2,14 +2,12 @@ Rails.application.routes.draw do
   resources :events
   resources :spots do
     resources :comments, only: [:new, :create, :show]
-  end
-
-  resources :comments, only: :destroy
-
     collection do
       get :stolen_bike
     end
   end
+
+  resources :comments, only: :destroy
 
   devise_for :users
   authenticated :user do
@@ -22,7 +20,6 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "profile", to: "pages#profile"
-
 
   # Defines the root path route ("/")
   # root "articles#index"
