@@ -21,8 +21,6 @@ class SpotsController < ApplicationController
     @spots = Spot.all.where(category: "Stolen bike")
   end
 
-
-
   # GET /spots/1 or /spots/1.json
   def show
     @comment = Comment.new
@@ -80,25 +78,22 @@ class SpotsController < ApplicationController
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
 
-    def set_spot
-      @spot = Spot.find(params[:id])
+  def set_spot
+    @spot = Spot.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def spot_params
+    params.require(:spot).permit(:comment, :category, :location, :acitve, :user_id, :photo)
+  end
+
+  def category_marker(spot)
+    if spot.category == "Accident"
+      return helpers.asset_url("circle_accident.png")
+    else
+      return helpers.asset_url("circle_stolen_bike.png")
     end
-
-    # Only allow a list of trusted parameters through.
-    def spot_params
-      params.require(:spot).permit(:comment, :category, :location, :acitve, :user_id, :photo)
-    end
-
-    def category_marker(spot)
-      if spot.category == "Accident"
-        return helpers.asset_url("circle_accident.png")
-      else
-        return helpers.asset_url("circle_stolen_bike.png")
-      end
-    end
-
+  end
 end
