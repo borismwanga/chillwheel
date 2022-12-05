@@ -1,0 +1,34 @@
+.legend {
+    position: absolute; 
+    z-index: 991;  
+    right: 55px; 
+    bottom: 185px; 
+    background: white; 
+    padding: 12px;
+
+    text-decoration: none;
+    color: #000000 !important;
+    padding: 0.5em 1em;
+    background-color: white;
+    box-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 3px 3px black, -1px -1px black, 1px -1px black, -1px 1px black;
+    font-weight: 900;
+    font-style: oblique;
+
+    span {
+        display: grid;
+        grid-template-columns: 0.5fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        align-items: center;
+        
+    }
+
+    img {
+        width: 12px;
+        height: 12px;
+    }
+
+   
+}
+ 

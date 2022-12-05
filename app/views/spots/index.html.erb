@@ -1,16 +1,17 @@
-
-<div>
   <div class="spots-page">
     <div style="width: 100%; height: 100vh;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+       <%= render "legend" %>
     </div>
   </div>
 
   <div style="position: absolute; z-index: 1; top: 185px; left: 55px;">
     <%= link_to "REPORT", new_spot_path, class: "new-spot-button"%>
   </div>
+
+
 
   <div class="footer">
     <div class="footer-content">
