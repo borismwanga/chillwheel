@@ -19,6 +19,7 @@ class SpotsController < ApplicationController
 
   def stolen_bike
     @spots = Spot.all.where(category: "Stolen bike")
+    @comment = Comment.new
   end
 
 
