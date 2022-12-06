@@ -15,10 +15,15 @@
 
       </div>
       <div>
+      <% if @spot.category == "Stolen bike" %>
+
+        <div>
         <%= render "comments/new"%>
-      </div>
-      <div>
+        </div>
+        <div>
         <%= render "comments/comments" %>
+        </div>
+      <% end %>
       </div>
     </div>
 </div>
