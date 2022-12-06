@@ -118,11 +118,13 @@ export default class extends Controller {
       geolocate.trigger();
       });
      this.map.on('click', function(e) {
-		    let coordinates = e.lngLat;
+		    const coordinates = e.lngLat;
         console.log(coordinates)
-        new mapboxgl.Marker()
+        new mapboxgl.Popup()
 		      .setLngLat(coordinates)
-          .addTo(this.map)
+          .setHTML("you clicked here: <br/> " + coordinates)
+          .setMaxWidth("300px")
+          .addTo(this);
         	});
     }
 
