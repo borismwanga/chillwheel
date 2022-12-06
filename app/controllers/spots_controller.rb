@@ -3,6 +3,7 @@ class SpotsController < ApplicationController
 
   # GET /spots or /spots.json
   def index
+    @spot = Spot.new
     @spots = Spot.all
     # The `geocoded` scope filters only spots with coordinates
     @markers = @spots.geocoded.map do |spot|
@@ -15,11 +16,15 @@ class SpotsController < ApplicationController
         image_url: category_marker(spot)
       }
     end
+
+    @stolen_bike_count = Spot.all.where(category: "Stolen bike").count
+    @accident_count = Spot.all.where(category: "Accident").count
   end
 
   def stolen_bike
     @spots = Spot.all.where(category: "Stolen bike")
     @comment = Comment.new
+    # TODO : add --> spot.nearbys(5) to show only nearby spots
   end
 
   # GET /spots/1 or /spots/1.json
