@@ -6,14 +6,12 @@
                 <% if  spot.category == "Accident" %>
                     <%= image_tag("circle_accident.png", size: "16") %>
                 <%else%>
-                    <%= image_tag("circle_stolen_bike.png", size: "16") %>   
+                    <%= image_tag("circle_stolen_bike.png", size: "16") %>
                 <%end %>
-                <%= spot.location %>
+                <%= spot.comment %>
+                <div class="spot-location"><%= spot.location %></div>
             </div>
         <%end%>
     <%end%>
     </div>
 </div>
-
-
-

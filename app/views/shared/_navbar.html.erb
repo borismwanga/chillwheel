@@ -19,7 +19,7 @@
             <% end%>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%# <p> <%= current_user.username %>
-              <%= link_to "Grand Theft List",  stolen_bike_spots_path, class: "dropdown-item" %>
+              <%= link_to "Stolen Bikes List",  stolen_bike_spots_path, class: "dropdown-item" %>
               <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log Out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>

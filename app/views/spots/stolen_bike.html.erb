@@ -1,7 +1,7 @@
 <div class="background">
 
   <div class="stolenbikes-title">
-    <p>BIKE THEFT LIST</p>
+    <p>STOLEN BIKES LIST</p>
   </div>
 
   <div class="stolen-bike-container">
@@ -20,24 +20,22 @@
           <ul>
             <% spot.comments.last(3).each do |comment| %>
             <% avatar = comment.user %>
-            <li> <%=comment.content%> <br> <%= comment.user.username %>
-              <div id="avatar-position">
-              <% if avatar.photo.attached? %>
-                <%= cl_image_tag avatar.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% else%>
-                  <%= image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% end%>
-              </div>
+            <li class="comment-list"> <p class= "comment-content"><%= comment.content%></p><p class= "comment-username"><%= comment.user.username %></p>
+              <%# <div id="avatar-position"> %>
+              <%# if avatar.photo.attached? %>
+                <%# cl_image_tag avatar.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%# else%>
+                  <%# image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%# end%>
+              <%# </div> %>
             </li>
             <% end %>
           </ul>
-
-            <%= link_to "Edit post ", edit_spot_path(spot), class: "stolen-link" %>
-            <%= link_to "Delete post", spot_path(spot),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "stolen-link" %>
-
         </div>
       <% end %>
   </div>
+
+
 
   <div class="backtomap">
     <%= link_to "BACK TO MAP", spots_path, class:"backtomap-text" %>
