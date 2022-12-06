@@ -122,8 +122,8 @@ export default class extends Controller {
         console.log(coordinates)
         new mapboxgl.Popup()
 		      .setLngLat(coordinates)
-          .setHTML("you clicked here: <br/> " + coordinates)
-          .setMaxWidth("300px")
+          .setHTML("you want to report something here? <br/> " + " <%= link_to `REPORT`, new_spot_path%>")
+          .setMaxWidth("500px")
           .addTo(this);
         	});
     }
