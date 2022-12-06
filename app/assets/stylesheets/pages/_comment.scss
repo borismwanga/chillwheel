@@ -5,18 +5,36 @@
 }
 
 .newcomment {
-  text-align: center;
+
   font-family: "Inter", sans-serif;
   text-decoration: none !important;
+}
+
+.comment-content {
+  font-weight: 600;
+  margin-top: 5px;
+  border-top: 0.5px dotted black;
+}
+
+.comment-username {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 200;
+  font-size: 12px;
+  margin-top: -20px;
+  margin-bottom: 10px;
+
 }
 
 .comment-list {
   text-decoration: none !important;
   list-style: none;
+  margin-left: -30px;
 }
 
+
+
 .submit-text {
-  text-align: center;
   font-family: "Inter", sans-serif;
   width: 80%;
   border: 1px solid rgba(255, 255, 255, 0);
