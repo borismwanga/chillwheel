@@ -1,29 +1,27 @@
-<div class="body-container">
+<div class="background">
+  <div class="body-container">
     <div class="form-block">
       <div class="form-container">
-
         <div class="spots">
           <%= render @spot %>
         </div>
-
+        <div>
+          <%= render "comments/comments" %>
+          <br>
+        </div>
+        <div>
+          <%= render "comments/new"%>
+          <br>
+        </div>
         <div class="form-link">
           <div><%= link_to "EDIT REPORT", edit_spot_path(@spot), class:"form-link-text" %></div>
           <div><%= link_to "DELETE REPORT", @spot, method: :delete, class:"form-link-text" %></div>
           <br>
-          <div><%= link_to "BACK TO MAP", spots_path, class:"form-link-text" %></div>
-        </div>
-
-      </div>
-      <div>
-      <% if @spot.category == "Stolen bike" %>
-
-        <div>
-        <%= render "comments/new"%>
         </div>
         <div>
-        <%= render "comments/comments" %>
+          <%= link_to "BACK TO MAP", spots_path, class:"form-link-text" %>
         </div>
-      <% end %>
       </div>
     </div>
+  </div>
 </div>

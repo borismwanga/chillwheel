@@ -1,9 +1,10 @@
-<div>
+<div class= "newcomment">
   <ul>
-    <p><strong>Comments posted</strong></p>
+    <p id="usercomment">Comments</p>
     <% @comments.each do |comment| %>
+    <div class= "newcomment">
     <%avatar = comment.user %>
-    <li> <%= comment.content%> <br> <%= comment.user.username %>
+    <li class="comment-list"> <%= comment.content%> <br> <%= comment.user.username %>
     <div id="avatar-position">
     <% if avatar.photo.attached? %>
       <%= cl_image_tag avatar.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -12,6 +13,7 @@
     <% end%>
     </div>
     </li>
+    </div>
     <% end %>
   </ul>
 </div>
