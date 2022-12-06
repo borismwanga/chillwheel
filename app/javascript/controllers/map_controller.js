@@ -119,10 +119,17 @@ export default class extends Controller {
       });
      this.map.on('click', function(e) {
 		    const coordinates = e.lngLat;
+        const url = Routes.new_spot_path();
+        const button = document.createElement("button");
+        button.innerHTML = "Click me to go to the products page!";
+        button.addEventListener("click", function() {
+          window.location = productsUrl;
+        });
+        
         console.log(coordinates)
         new mapboxgl.Popup()
 		      .setLngLat(coordinates)
-          .setHTML("you want to report something here? <br/> " + " <%= link_to `REPORT`, new_spot_path%>")
+          .setHTML("you want to report something here? <br/> " + url)
           .setMaxWidth("500px")
           .addTo(this);
         	});
