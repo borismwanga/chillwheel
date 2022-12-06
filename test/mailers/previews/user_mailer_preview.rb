@@ -3,8 +3,8 @@ class UserMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/welcome
   def welcome
-    # user = User.last
-    user = User.find(current_user)
+    user = User.first
+    # @user = User.find(params[:id])
     UserMailer.welcome(user)
   end
 
