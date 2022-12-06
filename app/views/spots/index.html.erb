@@ -1,10 +1,5 @@
   <div class="spots-page">
-    <div style="width: 100%; height: 100vh;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      
-    </div>
+    <%=render "shared/map"%>
   </div>
   <%= render "spot_near" %>
       <%= render "legend" %>
@@ -17,18 +12,4 @@
   </div>
 
  
-<script>
-      const btnNear = document.querySelector("#btn-near"),
-        spotNear = document.querySelector(".spot-near"),
-        close = document.querySelector("#close"),
-        child = document.querySelector(".open-close")
-      btnNear.addEventListener("click", ()=>{
-        if (spotNear.classList.contains("active")) {
-          console.log('close')
-         child.innerText = "Near Me"
-        } else {
-          child.innerText = "Close"
-        }
-        spotNear.classList.toggle("active")
-      }) 
-  </script>
+

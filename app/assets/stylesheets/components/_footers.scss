@@ -3,10 +3,11 @@
 .footer {
   font-family: 'Inter', sans-serif;
   margin-top: auto;
-  background: rgb(255, 255, 255) !important;
   width: 100vw;
   padding-top: 20px;
   color: rgb(0, 0, 0);
+  height: 60px;
+  background: rgb(255, 255, 255);
 }
 
 .footer-content {
@@ -47,4 +48,10 @@ margin-right: 30px;
 font-size: small;
 color: rgb(0, 0, 0) !important;
 cursor: pointer !important;
+}
+
+@media screen and (max-width: 768px) {
+  .footer{
+    display: none;
+  }
 }

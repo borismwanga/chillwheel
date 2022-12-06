@@ -10,6 +10,8 @@ export default class extends Controller {
     markers: Array
   }
   connect() {
+    console.log("hohoiho")
+
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -91,22 +93,38 @@ export default class extends Controller {
         let lon = e.coords.longitude;
         let lat = e.coords.latitude
         let key = "pk.eyJ1IjoidG9tbXJsIiwiYSI6ImNsYTJqanh2ODBobzczcHBoY2VseTBiOHEifQ.Qp_zstoBsFRoqB3rBWPMHA"
-        let position = [lon, lat];
+        let position = [lon, lat];        
         localStorage.setItem('position', position)
-        console.log(localStorage.getItem('position'));
+        // console.log(localStorage.getItem('position'));
         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${position[0]},${position[1]}.json?access_token=${key}`)
           .then(response => response.json())
           // .then(data => this.getAddress(data.features[0].place_name));
           .then(data =>  localStorage.setItem('address', data.features[0].place_name));
       });
 
+      // fetch('/spots', {
+      //   method: 'POST',
+      //   data: { position: localStorage.getItem('address') },
+      // })
+      // .then(response => response.json())
+      // .then(data => {
+      //   // Handle the response from the server
+      //   console(data)
+      // });
 
 
       this.map.addControl(geolocate);
       this.map.on('load', () => {
       geolocate.trigger();
       });
-  }
+     this.map.on('click', function(e) {
+		    let coordinates = e.lngLat;
+        console.log(coordinates)
+        new mapboxgl.Marker()
+		      .setLngLat(coordinates)
+          .addTo(this.map)
+        	});
+    }
 
 
 

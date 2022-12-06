@@ -22,4 +22,10 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+.spots-page{
+    flex-grow: 1;
+    background: red;
 }

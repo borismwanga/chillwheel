@@ -16,6 +16,7 @@ class SpotsController < ApplicationController
         image_url: category_marker(spot)
       }
     end
+    @position = params[:position]
   end
 
   def stolen_bike
