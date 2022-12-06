@@ -1,7 +1,7 @@
 <div class="background">
 
   <div class="stolenbikes-title">
-    <p>THE STOLEN BIKES</p>
+    <p>BIKE THEFT LIST</p>
   </div>
 
   <div class="stolen-bike-container">
@@ -11,7 +11,7 @@
 
         <%#= link_to spot_path(spot) do %>
           <% if spot.photo.attached? %>
-            <%= cl_image_tag spot.photo.key, crop: :fill, class: "photo-fit-card" %>
+            <%= cl_image_tag spot.photo.key, crop: :fill, class: "photo-fit-card-2" %>
           <% end %>
 
           <p class="stolen-bike-text">Location:</p>
