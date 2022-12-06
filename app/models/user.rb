@@ -9,11 +9,11 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
-  # after_create :send_welcome_email
+  after_create :send_welcome_email
 
-  # private
+  private
 
-  # def send_welcome_email
-  #   UserMailer.welcom(self).deliver_now
-  # end
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 end
