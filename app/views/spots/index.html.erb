@@ -3,7 +3,7 @@
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      
+
     </div>
   </div>
   <%= render "spot_near" %>
@@ -13,10 +13,10 @@
   </div>
 
   <div id="btn-near" style="position: absolute; z-index: 10; top: 185px; right: 55px; cursor:pointer">
-    <p class="new-spot-button open-close" style="font-size: 14px"> Near Me</p>
+    <p class="new-spot-button open-close" style="font-size: 14px"> NEAR ME</p>
   </div>
 
- 
+
 
 
   <div class="footer">
@@ -28,6 +28,8 @@
         <li><%= link_to "Privacy", "https://ec.europa.eu/info/law/law-topic/data-protection_en", target: "_blank", class: "footer-link" %></li>
         <li><%= link_to "Terms",  "https://www.commissioner.brussels/en/i-am-an-expat/housing/82-housing/104-signing-a-lease", target: "_blank", class: "footer-link" %></li>
       </ul>
+      <p>Stolen bikes:</p><%= @stolen_bike_count %>
+      <p>Accidents:</p><%= @accident_count %>
     </div>
   </div>
 </div>
