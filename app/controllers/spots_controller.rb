@@ -24,6 +24,7 @@ class SpotsController < ApplicationController
   def stolen_bike
     @spots = Spot.all.where(category: "Stolen bike")
     @comment = Comment.new
+    # TODO : add --> spot.nearbys(5) to show only nearby spots
   end
 
   # GET /spots/1 or /spots/1.json
