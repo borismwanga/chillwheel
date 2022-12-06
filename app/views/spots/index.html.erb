@@ -17,17 +17,18 @@
   </div>
 
  
-
-
-  <div class="footer">
-    <div class="footer-content">
-      <ul class="footer-list-left">
-        <%date = Date.today%>
-        <li class="footer-text">©<%= date.year  %>, ChillWheel</li>
-        <li><%= link_to "About", "#", class: "footer-link" %></li>
-        <li><%= link_to "Privacy", "https://ec.europa.eu/info/law/law-topic/data-protection_en", target: "_blank", class: "footer-link" %></li>
-        <li><%= link_to "Terms",  "https://www.commissioner.brussels/en/i-am-an-expat/housing/82-housing/104-signing-a-lease", target: "_blank", class: "footer-link" %></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<script>
+      const btnNear = document.querySelector("#btn-near"),
+        spotNear = document.querySelector(".spot-near"),
+        close = document.querySelector("#close"),
+        child = document.querySelector(".open-close")
+      btnNear.addEventListener("click", ()=>{
+        if (spotNear.classList.contains("active")) {
+          console.log('close')
+         child.innerText = "Near Me"
+        } else {
+          child.innerText = "Close"
+        }
+        spotNear.classList.toggle("active")
+      }) 
+  </script>

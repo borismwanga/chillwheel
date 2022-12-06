@@ -18,3 +18,8 @@
 
 // Mapbox
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

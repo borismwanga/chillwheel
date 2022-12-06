@@ -24,7 +24,6 @@ export default class extends Controller {
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                         mapboxgl: mapboxgl }), "top-left")
     this.#geolocalisation("top-left")
-
   }
 
   // #markerColor(marker) {
