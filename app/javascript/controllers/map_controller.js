@@ -117,21 +117,25 @@ export default class extends Controller {
       this.map.on('load', () => {
       geolocate.trigger();
       });
-     this.map.on('click', function(e) {
+     this.map.on('dblclick', function(e) {
 		    const coordinates = e.lngLat;
-        const button = document.createElement("button");
-        button.innerHTML = "Click me to go to the products page!";
-        button.addEventListener("click", function() {
-          window.location = productsUrl;
-        });
-        
-        console.log(coordinates)
+        const key = "pk.eyJ1IjoidG9tbXJsIiwiYSI6ImNsYTJqanh2ODBobzczcHBoY2VseTBiOHEifQ.Qp_zstoBsFRoqB3rBWPMHA";
+        localStorage.setItem('newLocation', Object.values(coordinates));
+        const long= parseFloat(localStorage.getItem("newLocation").split(",")[0]);
+        const lat= parseFloat(localStorage.getItem("newLocation").split(",")[1]);
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${parseFloat(localStorage.getItem("newLocation").split(",")[0])},${parseFloat(localStorage.getItem("newLocation").split(",")[1])}.json?access_token=${key}`)
+          .then(response => response.json())
+          .then(data =>  localStorage.setItem('newAddress', data.features[0].place_name));
+          console.log(coordinates)
         new mapboxgl.Popup()
 		      .setLngLat(coordinates)
-          .setHTML("you want to report something here? <br/> " )
+          .setHTML("you want to report something here? <br/><div data-controller='geolocalisation'><button data-action='click->geolocalisation#newAddress'>Yes?</button><div>" )
           .setMaxWidth("500px")
           .addTo(this);
         	});
+
+          
+          
     }
 
 

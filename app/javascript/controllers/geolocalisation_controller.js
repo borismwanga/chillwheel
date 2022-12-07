@@ -8,4 +8,7 @@ export default class extends Controller {
     this.inputTarget.value = localStorage.getItem('address')
   }
 
+  
+  
 }
+
