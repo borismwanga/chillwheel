@@ -2,14 +2,14 @@
 
 .footer {
   font-family: 'Inter', sans-serif;
-  position: fixed;
-  bottom: 0;
-  background: rgb(255, 255, 255) !important;
+  margin-top: auto;
   width: 100vw;
   padding-top: 10px;
   padding-bottom: 10px;
 
   color: rgb(0, 0, 0);
+  height: 60px;
+  background: rgb(255, 255, 255);
 }
 
 .footer-content {
@@ -55,6 +55,7 @@ color: rgb(0, 0, 0) !important;
 cursor: pointer !important;
 }
 
+
 .footer-counter-text {
   font-weight: 900;
   color: black;
@@ -78,4 +79,9 @@ cursor: pointer !important;
   margin-left: 10px;
   margin-right: 20px;
   margin-bottom: -22px;
+}
+@media screen and (max-width: 768px) {
+  .footer{
+    display: none;
+  }
 }

@@ -52,3 +52,11 @@
       cursor: pointer;
     }
   }
+.map-co{
+  height: calc(100vh - 124px);
+}
+@media screen and (max-width: 768px) {
+  .map-co{
+    height: calc(100vh - 64px);
+  }
+}
