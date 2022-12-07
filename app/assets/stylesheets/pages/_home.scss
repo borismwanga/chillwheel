@@ -11,6 +11,9 @@ html {
 body{
   background-color: #ffffff00;
 }
+.body-container{
+  flex-grow: 1;
+}
 
 .container {
   position: relative;

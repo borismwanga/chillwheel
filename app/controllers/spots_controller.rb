@@ -18,8 +18,10 @@ class SpotsController < ApplicationController
       }
     end
 
+
     @stolen_bike_count = Spot.all.where(category: "Stolen bike").count
     @accident_count = Spot.all.where(category: "Accident").count
+
   end
 
   def stolen_bike
