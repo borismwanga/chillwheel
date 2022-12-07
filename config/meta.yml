@@ -1,5 +1,5 @@
 meta_name: "ChillWheel"
 meta_title: "ChillWheel - Ride Safe"
 meta_description: "Check or report a crash or stolen bike on Chill\n'Wheel and help the cyclist community to have safer rides in our cities!"
-meta_image: "chillwhel.png" # should exist in `app/assets/images/`
+meta_image: "chillwhell.png" # should exist in `app/assets/images/`
 twitter_account: "@your_twitter_account"   # required for Twitter Cards
