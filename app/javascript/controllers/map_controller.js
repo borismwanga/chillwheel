@@ -119,7 +119,6 @@ export default class extends Controller {
       });
      this.map.on('click', function(e) {
 		    const coordinates = e.lngLat;
-        const url = Routes.new_spot_path();
         const button = document.createElement("button");
         button.innerHTML = "Click me to go to the products page!";
         button.addEventListener("click", function() {
@@ -129,7 +128,7 @@ export default class extends Controller {
         console.log(coordinates)
         new mapboxgl.Popup()
 		      .setLngLat(coordinates)
-          .setHTML("you want to report something here? <br/> " + url)
+          .setHTML("you want to report something here? <br/> " )
           .setMaxWidth("500px")
           .addTo(this);
         	});
