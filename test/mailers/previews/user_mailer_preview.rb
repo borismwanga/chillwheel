@@ -8,4 +8,11 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.welcome(user)
   end
 
+  def notification
+    @spot = Spot.new
+    @spot = Spot.find(params[:spot_id])
+    @user.id = Spot.user_id
+    UserMailer.with(user: @user).notification
+  end
+
 end
