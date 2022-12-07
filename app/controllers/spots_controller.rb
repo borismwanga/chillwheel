@@ -1,4 +1,5 @@
 class SpotsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_spot, only: %i[ show edit update destroy ]
 
   # GET /spots or /spots.json
