@@ -78,8 +78,8 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Mailer configuration
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "chillwheel.herokuapp.com" }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host: "chillwheel.herokuapp.com" }
   # or your custom domain name eg. "www.yourdomain.com"
 
   # Use a different logger for distributed setups.
