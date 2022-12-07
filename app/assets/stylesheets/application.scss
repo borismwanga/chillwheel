@@ -24,6 +24,7 @@ body{
     display: flex;
     flex-direction: column;
     width: 100%;
+    overflow-x: hidden;
 }
 .spots-page{
     flex-grow: 1;
