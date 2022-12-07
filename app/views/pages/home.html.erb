@@ -14,5 +14,19 @@
       <p id="privacy-text">Your privacy is safe with us, read more <a href="#", id="terms-text">HERE</a>.</p>
     </div>
   </div>
+
+  <div class="footer">
+    <div class="footer-content">
+      <ul class="footer-list-left">
+        <%date = Date.today%>
+        <li class="footer-text">©<%= date.year  %>, ChillWheel</li>
+        <li><%= link_to "About", about_path, class: "footer-link" %></li>
+        <li><%= link_to "Privacy", "https://ec.europa.eu/info/law/law-topic/data-protection_en", target: "_blank", class: "footer-link" %></li>
+        <li><%= link_to "Terms",  "https://www.commissioner.brussels/en/i-am-an-expat/housing/82-housing/104-signing-a-lease", target: "_blank", class: "footer-link" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>
 </div>
 
