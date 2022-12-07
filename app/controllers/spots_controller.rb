@@ -1,4 +1,5 @@
 class SpotsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_spot, only: %i[ show edit update destroy ]
 
   # GET /spots or /spots.json
@@ -17,13 +18,16 @@ class SpotsController < ApplicationController
       }
     end
 
+
     @stolen_bike_count = Spot.all.where(category: "Stolen bike").count
     @accident_count = Spot.all.where(category: "Accident").count
+
   end
 
   def stolen_bike
     @spots = Spot.all.where(category: "Stolen bike")
     @comment = Comment.new
+    # TODO : add --> spot.nearbys(5) to show only nearby spots
   end
 
   # GET /spots/1 or /spots/1.json

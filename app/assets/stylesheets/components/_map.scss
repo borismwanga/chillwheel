@@ -1,45 +1,62 @@
 .mapboxgl-popup {
     max-width: 220px;
-
+    border-top: 1px solid rgba(255, 255, 255, 0);
+    border-right: 1px solid rgba(255, 255, 255, 0);
+    border-left: 1px solid rgba(255, 255, 255, 0);
+    border: 1px solid #000000;
+    box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+    3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);;
+    background-color: white;
+    margin: -20px;
   }
 
   .mapboxgl-popup-content {
     text-align: center;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-
+    box-shadow: none !important;
+    padding-bottom: -10px;
+    padding-top: 5px;
 
     h2 {
       text-align: center;
       font-family: "Inter", sans-serif;
-      font-weight: 800;
       font-style: oblique;
       text-align: center;
-      font-size: 4vmin;
-      margin-bottom: 15px;
+      font-size: 3vmin;
+      color: #000000;
+      font-weight: 900;
     }
 
     p {
-      margin-top: 5px;
-      margin-bottom: 15px;
-      font-weight: 500;
+      margin-bottom: 10px;
+      font-weight: 400;
       font-size: 2vmin;
       padding: 1.5vmin;
-      border-top: solid 1px #000000;
-      border-bottom: solid 1px #000000;
     }
 
     a {
       text-decoration: none !important;
-      color: rgb(101, 155, 255);
+      padding: 8px;
+      padding-left: 20px;
+      padding-right: 20px;
+      color: #000000;
+      font-size: 2vmin;
       font-weight: 800;
-      cursor: pointer;
+
     }
 
     a:hover {
       text-decoration: none !important;
-      color: black;
-      font-weight: 800;
+      color: rgb(101, 155, 255);
       cursor: pointer;
     }
   }
+.map-co{
+  height: calc(100vh - 124px);
+}
+@media screen and (max-width: 768px) {
+  .map-co{
+    height: calc(100vh - 64px);
+  }
+}

@@ -29,6 +29,11 @@
         height: 12px;
     }
 
-   
 }
- 
+
+@media screen and (max-width: 768px) {
+    .legend {
+        right: 16px; 
+        bottom: 16px;
+      }
+  }

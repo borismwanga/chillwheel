@@ -1,14 +1,14 @@
 .spot-near{
     position: absolute;
-    top:185px;
-    z-index: 9;  
-    right: 0; 
-    width:200px; 
-    height: 550px;
-    background: white; 
+    top:175px;
+    z-index: 9;
+    right: 0;
+    width:150px;
+    height: 390px;
+    background: white;
     transform: translateX(250px);
     transition: all 0.5s ease-in-out;
-    padding: 0.5em 1em;
+    padding: 0.2em 0.2em;
     box-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 3px 3px black, -1px -1px black, 1px -1px black, -1px 1px black;
     font-weight: 600;
     font-size: 1rem;
@@ -31,12 +31,16 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 30px 16px;
-
+        padding: 15px 15px;
     }
-    
+
 }
 
 .active {
     transform: translateX(0);
+}
+
+.spot-location {
+  font-weight: 300;
+  font-style: normal;
 }
