@@ -4,14 +4,7 @@
     <% @comments.each do |comment| %>
     <div class= "newcomment">
     <%avatar = comment.user %>
-    <li class="comment-list"> <%= comment.content%> <br> <%= comment.user.username %>
-    <div id="avatar-position">
-    <% if avatar.photo.attached? %>
-      <%= cl_image_tag avatar.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    <% else%>
-        <%= image_tag "https://img.icons8.com/ios-filled/512/gender-neutral-user.png", height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    <% end%>
-    </div>
+    <li class="comment-list"> <p class= "comment-content"><%= comment.content%></p><p class= "comment-username"><%= comment.user.username %></p>
     </li>
     </div>
     <% end %>

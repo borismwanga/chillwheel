@@ -7,7 +7,7 @@
     </div>
   </div>
   <%= render "spot_near" %>
-      <%= render "legend" %>
+      <%# <%= render "legend" %>
   <div style="position: absolute; z-index: 1; top: 185px; left: 55px;">
     <%= link_to "REPORT", new_spot_path, class: "new-spot-button"%>
   </div>
@@ -28,8 +28,12 @@
         <li><%= link_to "Privacy", "https://ec.europa.eu/info/law/law-topic/data-protection_en", target: "_blank", class: "footer-link" %></li>
         <li><%= link_to "Terms",  "https://www.commissioner.brussels/en/i-am-an-expat/housing/82-housing/104-signing-a-lease", target: "_blank", class: "footer-link" %></li>
       </ul>
-      <p>Stolen bikes:</p><%= @stolen_bike_count %>
-      <p>Accidents:</p><%= @accident_count %>
+      <ul class="footer-list-right">
+        <li class="footer-counter-text"><p>TOTAL CRASHES:</p></li>
+        <li class="footer-counter-number-crash"><%= @accident_count %></li>
+        <li class="footer-counter-text"><p>TOTAL THEFTS:</p></li>
+        <li class="footer-counter-number-theft"><%= @stolen_bike_count %></li>
+      </ul>
     </div>
   </div>
 </div>
