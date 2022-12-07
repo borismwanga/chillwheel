@@ -1,15 +1,17 @@
   <div class="spots-page">
     <%=render "shared/map"%>
+
   </div>
   <%= render "spot_near" %>
-      <%= render "legend" %>
+      <%# <%= render "legend" %>
   <div style="position: absolute; z-index: 1; top: 185px; left: 55px;">
     <%= link_to "REPORT", new_spot_path, class: "new-spot-button"%>
   </div>
 
   <div id="btn-near" style="position: absolute; z-index: 10; top: 185px; right: 55px; cursor:pointer">
-    <p class="new-spot-button open-close" style="font-size: 14px"> Near Me</p>
+    <p class="new-spot-button open-close" style="font-size: 14px"> NEAR ME</p>
   </div>
 
- 
+
+
 
