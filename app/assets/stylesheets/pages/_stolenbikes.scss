@@ -4,23 +4,57 @@
   justify-content: space-around;
   align-items: flex-start;
   margin-bottom: 30px;
+  margin-top: 20px;
+
+}
+
+.inside-card-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 350px;
+  height: 150px;
+
+}
+
+.inside-card-display:hover {
+  filter: grayscale(0);
+}
+
+.left {
+  max-height: 140px;
+  max-width: 150px;
+}
+
+.right {
+  max-height: 140px;
+  max-width: 150px;
 }
 
 .stolen-bike-cards {
-  width: 370px;
+  display: inline-block;
+  justify-content: space-around;
+  border: solid black 1px;
   background-color: rgb(255, 255, 255);
+  box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+  3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
   margin: 20px;
   padding: 15px;
-    
+
   // border: solid black 1px;
   // box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
   // 3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
 
 }
+.stolen-bike-cards:hover{
+  transform: translate3D(0,-1px,0) scale(1.10);
+}
+
 a{
   text-decoration: none;
   color: black !important;
-  
+
 }
 .stolenbikes-title {
   text-align: center;
@@ -47,22 +81,15 @@ a{
   color: rgb(101, 155, 255) !important;
 }
 
-.stolen-bike-text {
-  margin-bottom: 20px;
-}
-
 .photo-fit-card {
-  text-align: center;
-  width: 270px;
-  margin-bottom: 20px;
-  height: auto;
+text-align: center;
+width: 270px;
 }
 
 .photo-fit-card-2 {
-  text-align: center;
-  width: 340px;
-  margin-bottom: 20px;
-  height: auto;
+  max-height: 140px;
+  max-width: 150px;
+
 }
 
 .background {
@@ -88,7 +115,19 @@ a{
 }
 
 .text-margin {
-  margin-bottom: 15px;
-  margin-top: -15px;
+  margin-bottom: 5px;
+  margin-top: -20px;
   font-weight: bolder;
+}
+
+.photo-position {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 270px;
+}
+
+.stolen-bike-text {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 20px;
 }

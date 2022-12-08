@@ -5,27 +5,24 @@
   </div>
 
   <div class="stolen-bike-container">
-
       <% @spots.each do |spot| %>
         <%= link_to spot_path(spot) do %>
           <div class="stolen-bike-cards">
-
+          <div class="inside-card-display">
+          <div class="left">
           <%#= link_to spot_path(spot) do %>
             <% if spot.photo.attached? %>
               <%= cl_image_tag spot.photo.key, crop: :fill, class: "photo-fit-card-2" %>
             <% end %>
-
+            </div>
+            <div class="right">
             <p class="stolen-bike-text">Location:</p>
             <div class= "text-margin"><%=spot.location %></div>
-            <p class="stolen-bike-text">Comment:</p>
-            <ul>
-              <% spot.comments.last(3).each do |comment| %>
-              <% avatar = comment.user %>
-              <li class="comment-list"> <p class= "comment-content"><%= comment.content%></p><p class= "comment-username"><%= comment.user.username %></p>
-              </li>
-              <% end %>
-            </ul>
-          </div>
+            <p class="stolen-bike-text">Owner:</p>
+            <div class= "text-margin"><%=current_user.username %></div>
+            </div>
+            </div>
+            </div>
         <%end  %>
       <% end %>
   </div>
