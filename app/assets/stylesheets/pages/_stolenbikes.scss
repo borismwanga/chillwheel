@@ -11,12 +11,17 @@
   background-color: rgb(255, 255, 255);
   margin: 20px;
   padding: 15px;
+    
   // border: solid black 1px;
   // box-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
   // 3px 3px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
 
 }
-
+a{
+  text-decoration: none;
+  color: black !important;
+  
+}
 .stolenbikes-title {
   text-align: center;
   font-size: 28px;
