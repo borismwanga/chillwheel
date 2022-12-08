@@ -1,7 +1,7 @@
 <h2>REPORT</h2>
 
 <div class="spot">
-      <div>
+      <div class="photo-position">
       <% if spot.photo.attached? %>
         <%= cl_image_tag spot.photo.key, crop: :fill, class: "photo-fit-card" %>
       <% end %>
