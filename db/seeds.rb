@@ -7,7 +7,7 @@ User.destroy_all
 5.times {
   photo = Faker::LoremFlickr.image(size: "380x460", search_terms: ['person'])
   file = URI.open(photo)
-  user = User.create(username: Faker::FunnyName.name, email:Faker::Internet.email, phone_number:Faker::PhoneNumber.cell_phone, password:"123456",)
+  user = User.create(username: Faker::Name.name, email:Faker::Internet.email, phone_number:Faker::PhoneNumber.cell_phone, password:"123456",)
   user.photo.attach(io: file, filename: "spaceship.jpg", content_type: "image/jpg")
 }
 puts "done 5 users"
@@ -110,24 +110,28 @@ puts "done 5 users"
              "On m'a volé mon vélo adoré ! Si quelqu'un le voit, j'offre une récompense.",
              "My bike was stolen while parking.",
              "This is ridiculous!!!! Thisi is a third bike in a year! Someone should be patrolling this place!"].sample
-  photo_stolen = ["https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen50_ikceje.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen47_ei9gtd.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen48_2_zkseip.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen49_khz5j6.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen46_onf4gz.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen45_vipcdp.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen44_gj2ogg.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen43_2_mtlxjj.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen42_grqnji.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen41_dn7lg2.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen40_2_dj21fu.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495562/stolen39_2_o5vwp1.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495562/stolen38_wyfifo.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495562/stolen37_2_zhgokf.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495562/stolen36_shqelz.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495562/stolen34_2_k1slzl.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495562/stolen36_2_i1s1uo.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495561/stolen35_e3ujqh.jpg"].sample
+  picture_array = ["https://res.cloudinary.com/dajqoeco6/image/upload/v1670512912/stolen50_rvwveu.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512912/stolen49_wblicj.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512912/stolen45_w1jpol.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512912/stolen48_fv4rrj.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512912/stolen47_yql7s5.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512912/stolen46_xeqx2e.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512912/stolen44_bl2wee.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512911/stolen43_ffkins.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512911/stolen39_n1vm8t.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512911/stolen38_zh2fk1.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512911/stolen42_rzwz2e.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512911/stolen40_dh5gaw.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512911/stolen41_ao9384.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512911/stolen37_ks5ihy.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512911/stolen36_qutipv.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512910/stolen33_wpiuxv.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512910/stolen32_b9ryat.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512910/stolen34_qnpcwd.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670512910/stolen31_loszsv.jpg"]
+  photo_stolen = picture_array.sample
+  picture_array.delete(photo_stolen)
+
   file = URI.open(photo_stolen)
   spot_stolen = Spot.create!(comment: comment, category: category, user: user,location: location)
   spot_stolen.photo.attach(io: file, filename: photo_stolen, content_type: "image/png")
@@ -247,40 +251,43 @@ puts "done 19 theft spots in Brussels"
              "I take this path every day. This street is really dangerous. I just had my third car accident in a month! Drivers don't know how to drive when it rains...",
              "Ça fait plus de 30 ans que je roule quotidiennement à vélo. Jamais eu le moindre accident avant de m'installer à Bruxelles. Cette ville est très mal aménagée pour les cyclistes! En un ans que je vis ici, déjà 3 accidents.",
              "I had signalled with my hand that I was turning to the right and I was hit from behind. A scooter ran into me. It was driving on the pavement and landed on the road without warning."].sample
-  photo_accident = ["https://res.cloudinary.com/dajqoeco6/image/upload/v1670500612/crash50_xk3k8q.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash49_nao2b6.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash48_sgk27p.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash47_x4gqif.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash46_zbfsdg.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash43_ub73yr.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash45_fndbzg.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash41_fvrig3.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash44_dkl967.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash42_ff4itp.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500610/crash36_grhvjp.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500610/crash38_cgm6jo.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash40_pcvj5n.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500610/crash39_wm40zv.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500610/crash37_r0synj.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500610/crash35_rsfj4l.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500610/crash34_ynrxma.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500610/crash33_hxbicp.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash16_jh2bzs.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500610/crash31_ko5r6t.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500610/crash32_stkq76.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash26_ggmqi7.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash27_xml0f0.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash30_ya1bug.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash29_tajt5w.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash28_nmcdsy.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash24_hkawsx.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash25_ugqcnf.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash22_n4ai61.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash23_tzaq2h.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash20_qpgsof.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500608/crash17_h6hv0t.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500608/crash18_jeldvr.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash21_cyeb3q.jpg"].sample
+  picture_array = ["https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash49_hllk2m.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash47_lakcd4.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash46_dj8bcp.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash50_bqhai6.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash48_t2n830.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash43_vxhtf1.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash42_x0c4dg.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash44_yfhy5o.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash45_wqnofc.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash37_utsxot.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513958/crash40_ffymwc.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash38_vnaxpt.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash36_exhjkm.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash39_taqipt.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash35_tdarov.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash32_zlauax.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash29_zwa0sl.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash34_kvd8lc.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash31_duqcth.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash33_vbqjky.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513957/crash30_oqckaz.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513956/crash28_zhnnry.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513956/crash22_npqcr8.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513956/crash22_npqcr8.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513956/crash24_exgfre.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513956/crash26_cfqbxh.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513956/crash27_o2ubvb.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513956/crash25_mh8jdo.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513956/crash23_jasv8b.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513956/crash21_rgaikq.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513955/crash20_vtnfps.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513955/crash18_lirx6l.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513955/crash15_h4fsdt.jpg",
+                    "https://res.cloudinary.com/dajqoeco6/image/upload/v1670513955/crash16_wb9hrg.jpg"]
+  photo_accident = picture_array.sample
+  picture_array.delete(photo_accident)
+
   file = URI.open(photo_accident)
   spot_accident = Spot.create!(comment: comment, category: category, user: user,location: location)
   spot_accident.photo.attach(io: file, filename: photo_accident, content_type: "image/png")
