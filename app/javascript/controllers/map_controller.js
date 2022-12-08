@@ -117,21 +117,21 @@ export default class extends Controller {
       this.map.on('load', () => {
       geolocate.trigger();
       });
-     this.map.on('click', function(e) {
-		    const coordinates = e.lngLat;
-        const button = document.createElement("button");
-        button.innerHTML = "Click me to go to the products page!";
-        button.addEventListener("click", function() {
-          window.location = productsUrl;
-        });
+    //  this.map.on('click', function(e) {
+		//     const coordinates = e.lngLat;
+    //     const button = document.createElement("button");
+    //     button.innerHTML = "Click me to go to the products page!";
+    //     button.addEventListener("click", function() {
+    //       window.location = productsUrl;
+    //     });
         
-        console.log(coordinates)
-        new mapboxgl.Popup()
-		      .setLngLat(coordinates)
-          .setHTML("you want to report something here? <br/> " )
-          .setMaxWidth("500px")
-          .addTo(this);
-        	});
+    //     console.log(coordinates)
+    //     new mapboxgl.Popup()
+		//       .setLngLat(coordinates)
+    //       .setHTML("you want to report something here? <br/> " )
+    //       .setMaxWidth("500px")
+    //       .addTo(this);
+    //     	});
     }
 
 
