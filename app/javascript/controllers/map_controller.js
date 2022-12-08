@@ -94,17 +94,17 @@ export default class extends Controller {
         let lat = e.coords.latitude
         let key = "pk.eyJ1IjoidG9tbXJsIiwiYSI6ImNsYTJqanh2ODBobzczcHBoY2VseTBiOHEifQ.Qp_zstoBsFRoqB3rBWPMHA"
         let position = [lon, lat];        
-        localStorage.setItem('position', position)
-        // console.log(localStorage.getItem('position'));
+        sessionStorage.setItem('position', position)
+        // console.log(sessionStorage.getItem('position'));
         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${position[0]},${position[1]}.json?access_token=${key}`)
           .then(response => response.json())
           // .then(data => this.getAddress(data.features[0].place_name));
-          .then(data =>  localStorage.setItem('address', data.features[0].place_name));
+          .then(data =>  sessionStorage.setItem('address', data.features[0].place_name));
       });
 
       // fetch('/spots', {
       //   method: 'POST',
-      //   data: { position: localStorage.getItem('address') },
+      //   data: { position: sessionStorage.getItem('address') },
       // })
       // .then(response => response.json())
       // .then(data => {
@@ -118,18 +118,19 @@ export default class extends Controller {
       geolocate.trigger();
       });
      this.map.on('dblclick', function(e) {
+      const link = "<%= link_to 'REPORT', new_spot_path, class: 'new-spot-button'%>".html_safe
 		    const coordinates = e.lngLat;
         const key = "pk.eyJ1IjoidG9tbXJsIiwiYSI6ImNsYTJqanh2ODBobzczcHBoY2VseTBiOHEifQ.Qp_zstoBsFRoqB3rBWPMHA";
-        localStorage.setItem('newLocation', Object.values(coordinates));
-        const long= parseFloat(localStorage.getItem("newLocation").split(",")[0]);
-        const lat= parseFloat(localStorage.getItem("newLocation").split(",")[1]);
-        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${parseFloat(localStorage.getItem("newLocation").split(",")[0])},${parseFloat(localStorage.getItem("newLocation").split(",")[1])}.json?access_token=${key}`)
+        sessionStorage.setItem('newLocation', Object.values(coordinates));
+        const long= parseFloat(sessionStorage.getItem("newLocation").split(",")[0]);
+        const lat= parseFloat(sessionStorage.getItem("newLocation").split(",")[1]);
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${parseFloat(sessionStorage.getItem("newLocation").split(",")[0])},${parseFloat(sessionStorage.getItem("newLocation").split(",")[1])}.json?access_token=${key}`)
           .then(response => response.json())
-          .then(data =>  localStorage.setItem('newAddress', data.features[0].place_name));
-          console.log(coordinates)
+          .then(data =>  sessionStorage.setItem('newAddress', data.features[0].place_name));
+          console.log(sessionStorage.getItem('newAddress'));
         new mapboxgl.Popup()
 		      .setLngLat(coordinates)
-          .setHTML("you want to report something here? <br/><div data-controller='geolocalisation'><button data-action='click->geolocalisation#newAddress'>Yes?</button><div>" )
+          .setHTML("you want to report something here? <br/>" + "<a href='spots/new'>REPORT</a>" )
           .setMaxWidth("500px")
           .addTo(this);
         	});
