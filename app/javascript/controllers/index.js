@@ -16,3 +16,5 @@ application.register("location-autocomplete", LocationAutocompleteController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import NearmeController from "./nearme_controller"
+application.register("nearme", NearmeController)
