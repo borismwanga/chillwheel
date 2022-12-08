@@ -1,24 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
 require 'faker'
 require 'open-uri'
-# Event.destroy_all
+
 Spot.destroy_all
 User.destroy_all
-
 
 5.times {
   photo = Faker::LoremFlickr.image(size: "380x460", search_terms: ['person'])
@@ -30,7 +14,7 @@ puts "done 5 users"
 
 19.times {
   user = User.all.to_a.sample
-  category = ["Stolen bike"]
+  category = "Stolen bike"
   street = ["Boulevard Adolphe Max",
             "Rue d'Aerschot",
             "Avenue Albert",
@@ -126,11 +110,28 @@ puts "done 5 users"
              "On m'a volé mon vélo adoré ! Si quelqu'un le voit, j'offre une récompense.",
              "My bike was stolen while parking.",
              "This is ridiculous!!!! Thisi is a third bike in a year! Someone should be patrolling this place!"].sample
-  photo_stolen = ["https://res.cloudinary.com/dajqoeco6/image/upload/v1670495501/stolen24_2_j9kolc.jpg",
-                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495523/stolen46_nni5w3.jpg"].sample
+  photo_stolen = ["https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen50_ikceje.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen47_ei9gtd.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen48_tbjupc.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen48_2_zkseip.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen48_tbjupc.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen49_khz5j6.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen50_2_motc6x.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen47_2_rzvijx.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen46_onf4gz.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen45_vipcdp.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen44_gj2ogg.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen44_2_cbsvmg.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495564/stolen45_2_ph5ddm.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen43_2_mtlxjj.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen41_dn7lg2.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen42_grqnji.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen42_2_k1ugw8.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495563/stolen41_2_gz2sey.jpg",
+                  "https://res.cloudinary.com/dajqoeco6/image/upload/v1670495562/stolen39_xwow0d.jpg"].sample
   file = URI.open(photo_stolen)
-  spot_stolen = Spot.create(comment: comment, category: category, user: user,location: location)
-  spot_stolen.photo.attach(io: file, filename: photo_stolen, content_type: "image/jpg")
+  spot_stolen = Spot.create!(comment: comment, category: category, user: user,location: location)
+  spot_stolen.photo.attach(io: file, filename: photo_stolen, content_type: "image/png")
 
 }
 
