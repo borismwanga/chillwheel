@@ -16,17 +16,19 @@
     <p class="new-spot-button open-close" style="font-size: 15px" data-action="click->nearme#toggleClass"> NEAR ME</p>
     <%= render "spot_near" %>
   </div>
-  
+
   <div class="footer">
     <div class="footer-content">
       <ul class="footer-list-left">
         <%date = Date.today%>
         <li class="footer-text">©<%= date.year  %>, ChillWheel</li>
-        <li><%= link_to "About", "#", class: "footer-link" %></li>
+        <li><%= link_to "About", about_path, class: "footer-link" %></li>
         <li><%= link_to "Privacy", "https://ec.europa.eu/info/law/law-topic/data-protection_en", target: "_blank", class: "footer-link" %></li>
         <li><%= link_to "Terms",  "https://www.commissioner.brussels/en/i-am-an-expat/housing/82-housing/104-signing-a-lease", target: "_blank", class: "footer-link" %></li>
       </ul>
+
       <ul class="footer-list-right">
+        <li class="footer-counter"><p>LAST 14 DAYS </p></li>
         <li class="footer-counter-text"><p>TOTAL CRASHES:</p></li>
         <li class="footer-counter-number-crash"><%= @accident_count %></li>
         <li class="footer-counter-text"><p>TOTAL THEFTS:</p></li>
@@ -35,4 +37,3 @@
     </div>
   </div>
 </div>
-
