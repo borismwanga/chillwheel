@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       if @comment.save
         redirect_to spot_path(@spot)
       else
-        render "spots/show", status: :unprocessable_entity
+        render "spots/show", status: :see_other
       end
     end
   end
