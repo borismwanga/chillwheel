@@ -18,3 +18,6 @@ application.register("map", MapController)
 
 import NearmeController from "./nearme_controller"
 application.register("nearme", NearmeController)
+
+import NewaddressController from "./newaddress_controller"
+application.register("newaddress", NewaddressController)
