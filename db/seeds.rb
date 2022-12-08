@@ -137,7 +137,7 @@ puts "done 19 theft spots in Brussels"
 
 34.times {
   user = User.all.to_a.sample
-  category = "Stolen bike"
+  category = "Accident"
   street = ["Boulevard Adolphe Max",
             "Rue d'Aerschot",
             "Avenue Albert",
@@ -247,7 +247,7 @@ puts "done 19 theft spots in Brussels"
              "I take this path every day. This street is really dangerous. I just had my third car accident in a month! Drivers don't know how to drive when it rains...",
              "Ça fait plus de 30 ans que je roule quotidiennement à vélo. Jamais eu le moindre accident avant de m'installer à Bruxelles. Cette ville est très mal aménagée pour les cyclistes! En un ans que je vis ici, déjà 3 accidents.",
              "I had signalled with my hand that I was turning to the right and I was hit from behind. A scooter ran into me. It was driving on the pavement and landed on the road without warning."].sample
-  photo_stolen = ["https://res.cloudinary.com/dajqoeco6/image/upload/v1670500612/crash50_xk3k8q.jpg",
+  photo_accident = ["https://res.cloudinary.com/dajqoeco6/image/upload/v1670500612/crash50_xk3k8q.jpg",
                   "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash49_nao2b6.jpg",
                   "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash48_sgk27p.jpg",
                   "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500611/crash47_x4gqif.jpg",
@@ -281,10 +281,11 @@ puts "done 19 theft spots in Brussels"
                   "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500608/crash17_h6hv0t.jpg",
                   "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500608/crash18_jeldvr.jpg",
                   "https://res.cloudinary.com/dajqoeco6/image/upload/v1670500609/crash21_cyeb3q.jpg"].sample
-  file = URI.open(photo_stolen)
-  spot_stolen = Spot.create!(comment: comment, category: category, user: user,location: location)
-  spot_stolen.photo.attach(io: file, filename: photo_stolen, content_type: "image/png")
+  file = URI.open(photo_accident)
+  spot_accident = Spot.create!(comment: comment, category: category, user: user,location: location)
+  spot_accident.photo.attach(io: file, filename: photo_accident, content_type: "image/png")
 }
 
 puts "done 34 accident spots in Brussels"
+
 puts "seed done"
