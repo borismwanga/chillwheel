@@ -1,20 +1,29 @@
-<div>
-  <h1>About us</h1>
 
+    <div class="form-block">
+      <div class="form-container">
+
+  <h3 id="aboutus">ABOUT US</h3>
+  <div class="about-text">
   <p> Do you know how many preventable deaths of cyclists happen per year?
-  According to National Center for Health Statistics mortality data, there were 1,260 bicyclist fatalities in 2020.
-  As we can see from the data below, The number of fatalities increased  every year..</p>
-  <div>
-    <%= image_tag "data-preventale-death.png"%>
-  </div>
+  According to the US National Center for Health Statistics mortality data, there were 1,260 bicyclist fatalities in 2020.
+  Unfortunatly, the number of fatalities increased every year..</p>
 
-  <p>Source:nsc</p>
+  <p>Chill'Wheel allows cyclists to highlight dangerous spots and make them visible to the community and authorities.</p>
+  <p>In addition, if your beloved bike get stolen, informations about the bike and theft location can be shared to the Chill'Wheel's community.</p>
 
-  <p>“Cheel Wheel” is an application that allows users who are cyclists to share information with each other to prevent these accidents.
-  In addition, When your important bike is stolen, information on the stolen bike is shared among users so that it can be found.
-  26510 bikes were stolen in 2021, although the number of thefts are on the decline.</p>
-  <%= image_tag "data-bike-thefts.png"%>
-
-  <p>Source : statista</p>
-  <p>Our “CheelWheel” team wants to support a comfortable cyclist's life🚴🚴🚴🚴🚴</p>
+  <p>Chill'Wheel's mission is to provide tools to the rider's community in aim to support a comfortable cyclist's life !</p>
 </div>
+</div>
+</div>
+
+    <div class="footer">
+      <div class="footer-content">
+        <ul class="footer-list-left">
+          <%date = Date.today%>
+          <li class="footer-text">©<%= date.year  %>, ChillWheel</li>
+          <li><%= link_to "About", "#", class: "footer-link" %></li>
+          <li><%= link_to "Privacy", "https://ec.europa.eu/info/law/law-topic/data-protection_en", target: "_blank", class: "footer-link" %></li>
+          <li><%= link_to "Terms",  "https://www.commissioner.brussels/en/i-am-an-expat/housing/82-housing/104-signing-a-lease", target: "_blank", class: "footer-link" %></li>
+        </ul>
+      </div>
+    </div>
