@@ -132,7 +132,6 @@ puts "done 5 users"
   file = URI.open(photo_stolen)
   spot_stolen = Spot.create!(comment: comment, category: category, user: user,location: location)
   spot_stolen.photo.attach(io: file, filename: photo_stolen, content_type: "image/png")
-
 }
 
 puts "done 19 theft spots in Brussels"
