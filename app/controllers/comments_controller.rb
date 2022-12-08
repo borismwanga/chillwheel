@@ -4,12 +4,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     @comment.spot = @spot
-    respond_to do |format|
-      if @comment.save
-        redirect_to spot_path(@spot)
-      else
-        render "spots/show", status: :unprocessable_entity
-      end
+    if @comment.save
+      redirect_to spot_path(@spot)
+    else
+      render "spots/show", status: :see_other
     end
   end
 
