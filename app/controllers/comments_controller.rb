@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       if @comment.save
         redirect_to spot_path(@spot), data: {turbo_confirm: "Your comment was successfully created."}
       else
-        render "spot/show", status: :unprocessable_entity
+        render "spots/show", status: :unprocessable_entity
       end
     end
   end

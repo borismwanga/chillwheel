@@ -133,9 +133,6 @@ export default class extends Controller {
           .setMaxWidth("500px")
           .addTo(this);
         	});
-
-          
-          
     }
 
 

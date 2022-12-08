@@ -16,6 +16,7 @@
 @import "pages/comment";
 @import "pages/stolenbikes";
 @import "components/forms";
+@import "pages/about";
 
 // Mapbox
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
@@ -24,9 +25,13 @@ body{
     display: flex;
     flex-direction: column;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 .spots-page{
     flex-grow: 1;
-    background: red;
+    background: rgb(255, 255, 255);
+}
+.background{
+    flex-grow: 1;
+
 }

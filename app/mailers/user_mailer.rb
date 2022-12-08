@@ -16,3 +16,14 @@ class UserMailer < ApplicationMailer
   #   mail(to: @user.email, subject: "News regarding your stolen bike.")
   # end
 end
+
+def notification(spot)
+  @spot = Spot.new
+  @spot = Spot.find(params[:spot_id])
+  console.log(spot.id)
+  @user = User.find(params[:user_id])
+  @user.id = Spot.user_id
+  console.log(@user.username)
+  @url  = “https://wwww.chillwheel.com/spots/#{[:spot_id]}”
+  mail(to: @user.email, subject: "News regarding your stolen bike.")
+end
