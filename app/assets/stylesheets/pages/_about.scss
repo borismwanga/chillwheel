@@ -1,6 +1,22 @@
+.about-container{
+  flex-grow: 1;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about{
+  max-width: 750px;
+  background: white;
+  padding: 50px;
+
+}
 #aboutus {
   font-weight: 900;
   font-style: oblique;
+  
 }
 
 .background {
@@ -11,5 +27,5 @@
 
 .about-text {
   padding-top: 20px;
-  font-size: 13px;
+  font-size: 20px;
 }
