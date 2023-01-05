@@ -14,10 +14,10 @@ To get started with Chillwheel, visit www.chillwheel.cc and create an account. O
 ## Contribute
 Chillwheel is an open source project, and we welcome contributions from the community. If you want to contribute, please fork the repository and submit a pull request with your changes. For more information, please see our contributing guidelines.
 ### Contributors
-<a href="https://github.com/borismwanga" target="_blank">Me</a>
-<a href="https://github.com/Xeniouska" target="_blank">Xeniouska</a>
-<a href="https://github.com/MikaBB" target="_blank">Mika</a>
-<a href="https://github.com/HiKacper" target="_blank">Kacper</a>
+<a href="https://github.com/borismwanga" target="_blank">Me</a>,
+<a href="https://github.com/Xeniouska" target="_blank">Xeniouska</a>,
+<a href="https://github.com/MikaBB" target="_blank">Mika</a>,
+<a href="https://github.com/HiKacper" target="_blank">Kacper</a> &
 <a href="https://github.com/thmsmrl" target="_blank">Thoma</a>
 
 ![chillwheel (4)](https://user-images.githubusercontent.com/57875197/207383971-c3f8bf07-88da-464b-a8f1-162582b98d4a.JPG)
